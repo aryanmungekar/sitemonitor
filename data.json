@@ -1,0 +1,447 @@
+{
+  "2024-01-10": {
+    "panoramic": {
+      "pano1": {
+        "img": "https://pannellum.org/images/alma.jpg",
+        "lat": 18.6512,
+        "lon": 73.7615,
+        "links": ["pano2"]
+      },
+      "pano2": {
+        "img": "https://pannellum.org/images/bma-1.jpg",
+        "lat": 18.6513,
+        "lon": 73.7616,
+        "links": ["pano1"]
+      }
+    }
+  },
+  "2024-03-15": {
+    "panoramic": {
+      "pano1": {
+        "img": "https://pannellum.org/images/alma.jpg",
+        "lat": 18.6512,
+        "lon": 73.7615,
+        "links": ["pano2"]
+      },
+      "pano2": {
+        "img": "https://pannellum.org/images/bma-1.jpg",
+        "lat": 18.6513,
+        "lon": 73.7616,
+        "links": ["pano1"]
+      }
+    }
+  },
+  "2024-03-16": {
+    "panoramic": {
+      "pano1": {
+        "img": "https://pannellum.org/images/alma.jpg",
+        "lat": 18.6512,
+        "lon": 73.7615,
+        "links": ["pano2"]
+      },
+      "pano2": {
+        "img": "https://pannellum.org/images/bma-1.jpg",
+        "lat": 18.6513,
+        "lon": 73.7616,
+        "links": ["pano1"]
+      }
+    }
+  },
+  "2024-03-17": {
+    "panoramic": {
+      "pano1": {
+        "img": "https://pannellum.org/images/alma.jpg",
+        "lat": 18.6512,
+        "lon": 73.7615,
+        "links": ["pano2"]
+      },
+      "pano2": {
+        "img": "https://pannellum.org/images/bma-1.jpg",
+        "lat": 18.6513,
+        "lon": 73.7616,
+        "links": ["pano1"]
+      }
+    }
+  },
+  "2024-03-18": {
+    "panoramic": {
+      "pano1": {
+        "img": "https://pannellum.org/images/alma.jpg",
+        "lat": 18.6512,
+        "lon": 73.7615,
+        "links": ["pano2"]
+      },
+      "pano2": {
+        "img": "https://pannellum.org/images/bma-1.jpg",
+        "lat": 18.6513,
+        "lon": 73.7616,
+        "links": ["pano1"]
+      }
+    }
+  },
+  "2024-03-19": {
+    "panoramic": {
+      "pano1": {
+        "img": "https://pannellum.org/images/alma.jpg",
+        "lat": 18.6512,
+        "lon": 73.7615,
+        "links": ["pano2"]
+      },
+      "pano2": {
+        "img": "https://pannellum.org/images/bma-1.jpg",
+        "lat": 18.6513,
+        "lon": 73.7616,
+        "links": ["pano1"]
+      }
+    }
+  },
+  "2024-03-20": {
+    "panoramic": {
+      "pano1": {
+        "img": "https://pannellum.org/images/alma.jpg",
+        "lat": 18.6512,
+        "lon": 73.7615,
+        "links": ["pano2"]
+      },
+      "pano2": {
+        "img": "https://pannellum.org/images/bma-1.jpg",
+        "lat": 18.6513,
+        "lon": 73.7616,
+        "links": ["pano1"]
+      }
+    }
+  },
+  "2024-04-18": {
+    "panoramic": {
+      "pano1": {
+        "img": "https://pannellum.org/images/alma.jpg",
+        "lat": 18.6512,
+        "lon": 73.7615,
+        "links": ["pano2"]
+      },
+      "pano2": {
+        "img": "https://pannellum.org/images/bma-1.jpg",
+        "lat": 18.6513,
+        "lon": 73.7616,
+        "links": ["pano1"]
+      }
+    }
+  },
+  "2024-05-18": {
+    "panoramic": {
+      "pano1": {
+        "img": "https://pannellum.org/images/alma.jpg",
+        "lat": 18.6512,
+        "lon": 73.7615,
+        "links": ["pano2"]
+      },
+      "pano2": {
+        "img": "https://pannellum.org/images/bma-1.jpg",
+        "lat": 18.6513,
+        "lon": 73.7616,
+        "links": ["pano1"]
+      }
+    }
+  },
+  "2024-06-18": {
+    "panoramic": {
+      "pano1": {
+        "img": "https://pannellum.org/images/alma.jpg",
+        "lat": 18.6512,
+        "lon": 73.7615,
+        "links": ["pano2"]
+      },
+      "pano2": {
+        "img": "https://pannellum.org/images/bma-1.jpg",
+        "lat": 18.6513,
+        "lon": 73.7616,
+        "links": ["pano1"]
+      }
+    }
+  },
+  "2024-07-18": {
+    "panoramic": {
+      "pano1": {
+        "img": "https://pannellum.org/images/alma.jpg",
+        "lat": 18.6512,
+        "lon": 73.7615,
+        "links": ["pano2"]
+      },
+      "pano2": {
+        "img": "https://pannellum.org/images/bma-1.jpg",
+        "lat": 18.6513,
+        "lon": 73.7616,
+        "links": ["pano1"]
+      }
+    }
+  },
+  "2024-08-18": {
+    "panoramic": {
+      "pano1": {
+        "img": "https://pannellum.org/images/alma.jpg",
+        "lat": 18.6512,
+        "lon": 73.7615,
+        "links": ["pano2"]
+      },
+      "pano2": {
+        "img": "https://pannellum.org/images/bma-1.jpg",
+        "lat": 18.6513,
+        "lon": 73.7616,
+        "links": ["pano1"]
+      }
+    }
+  },
+  "2024-09-18": {
+    "panoramic": {
+      "pano1": {
+        "img": "https://pannellum.org/images/alma.jpg",
+        "lat": 18.6512,
+        "lon": 73.7615,
+        "links": ["pano2"]
+      },
+      "pano2": {
+        "img": "https://pannellum.org/images/bma-1.jpg",
+        "lat": 18.6513,
+        "lon": 73.7616,
+        "links": ["pano1"]
+      }
+    }
+  },
+  "2024-04-19": {
+    "panoramic": {
+      "pano1": {
+        "img": "https://pannellum.org/images/alma.jpg",
+        "lat": 18.6512,
+        "lon": 73.7615,
+        "links": ["pano2"]
+      },
+      "pano2": {
+        "img": "https://pannellum.org/images/bma-1.jpg",
+        "lat": 18.6513,
+        "lon": 73.7616,
+        "links": ["pano1"]
+      }
+    }
+  },
+  "2024-03-08": {
+    "panoramic": {
+      "pano1": {
+        "img": "https://pannellum.org/images/alma.jpg",
+        "lat": 18.6512,
+        "lon": 73.7615,
+        "links": ["pano2"]
+      },
+      "pano2": {
+        "img": "https://pannellum.org/images/bma-1.jpg",
+        "lat": 18.6513,
+        "lon": 73.7616,
+        "links": ["pano1"]
+      }
+    }
+  },
+  "2024-03-21": {
+    "panoramic": {
+      "pano1": {
+        "img": "https://pannellum.org/images/alma.jpg",
+        "lat": 18.6512,
+        "lon": 73.7615,
+        "links": ["pano2"]
+      },
+      "pano2": {
+        "img": "https://pannellum.org/images/bma-1.jpg",
+        "lat": 18.6513,
+        "lon": 73.7616,
+        "links": ["pano1"]
+      }
+    }
+  },
+  "2024-03-22": {
+    "panoramic": {
+      "pano1": {
+        "img": "https://pannellum.org/images/alma.jpg",
+        "lat": 18.6512,
+        "lon": 73.7615,
+        "links": ["pano2"]
+      },
+      "pano2": {
+        "img": "https://pannellum.org/images/bma-1.jpg",
+        "lat": 18.6513,
+        "lon": 73.7616,
+        "links": ["pano1"]
+      }
+    }
+  },
+  "2024-03-23": {
+    "panoramic": {
+      "pano1": {
+        "img": "https://pannellum.org/images/alma.jpg",
+        "lat": 18.6512,
+        "lon": 73.7615,
+        "links": ["pano2"]
+      },
+      "pano2": {
+        "img": "https://pannellum.org/images/bma-1.jpg",
+        "lat": 18.6513,
+        "lon": 73.7616,
+        "links": ["pano1"]
+      }
+    }
+  },
+  "2024-03-24": {
+    "panoramic": {
+      "pano1": {
+        "img": "https://pannellum.org/images/alma.jpg",
+        "lat": 18.6512,
+        "lon": 73.7615,
+        "links": ["pano2"]
+      },
+      "pano2": {
+        "img": "https://pannellum.org/images/bma-1.jpg",
+        "lat": 18.6513,
+        "lon": 73.7616,
+        "links": ["pano1"]
+      }
+    }
+  },
+  "2024-03-25": {
+    "panoramic": {
+      "pano1": {
+        "img": "https://pannellum.org/images/alma.jpg",
+        "lat": 18.6512,
+        "lon": 73.7615,
+        "links": ["pano2"]
+      },
+      "pano2": {
+        "img": "https://pannellum.org/images/bma-1.jpg",
+        "lat": 18.6513,
+        "lon": 73.7616,
+        "links": ["pano1"]
+      }
+    }
+  },
+  "2024-03-26": {
+    "panoramic": {
+      "pano1": {
+        "img": "https://pannellum.org/images/alma.jpg",
+        "lat": 18.6512,
+        "lon": 73.7615,
+        "links": ["pano2"]
+      },
+      "pano2": {
+        "img": "https://pannellum.org/images/bma-1.jpg",
+        "lat": 18.6513,
+        "lon": 73.7616,
+        "links": ["pano1"]
+      }
+    }
+  },
+  "2024-03-27": {
+    "panoramic": {
+      "pano1": {
+        "img": "https://pannellum.org/images/alma.jpg",
+        "lat": 18.6512,
+        "lon": 73.7615,
+        "links": ["pano2"]
+      },
+      "pano2": {
+        "img": "https://pannellum.org/images/bma-1.jpg",
+        "lat": 18.6513,
+        "lon": 73.7616,
+        "links": ["pano1"]
+      }
+    }
+  },
+ "2024-09-28": {
+    "panoramic": {
+      "pano1": {
+        "img": "https://pannellum.org/images/alma.jpg",
+        "lat": 18.65120,
+        "lon": 73.76150,
+        "links": ["pano2", "pano3", "pano4"]
+      },
+      "pano2": {
+        "img": "https://pannellum.org/images/bma-1.jpg",
+        "lat": 18.65120,
+        "lon": 73.76170,
+        "links": ["pano1", "pano4"]
+      },
+      "pano3": {
+        "img": "https://pannellum.org/images/bma-0.jpg",
+        "lat": 18.65140,
+        "lon": 73.76150,
+        "links": ["pano1", "pano4"]
+      },
+      "pano4": {
+        "img": "https://pannellum.org/images/cerro-toco-0.jpg",
+        "lat": 18.65140,
+        "lon": 73.76170,
+        "links": ["pano2", "pano3"]
+      }
+    }
+  },
+  
+  "2024-10-28": {
+    "panoramic": {
+      "circle": {
+        "img": "https://pannellum.org//images/from-tree.jpg",
+        "lat": 18.65120,
+        "lon": 73.76150,
+        "links": ["house"]
+      },
+      "house": {
+        "img": "https://pannellum.org//images/bma-0.jpg",
+        "lat": 18.65130,
+        "lon": 73.76160,
+        "links": ["circle"]
+      }
+    }
+  },
+  "2026-02-10": {
+    "panoramic": {
+      "parking": {
+        "img": "neww/parking.jpg",
+        "lat": 16.260525,
+        "lon": 73.723764,
+        "links": ["porch", "devkholi"]
+      },
+      "porch": {
+        "img": "neww/porch.jpg",
+        "lat": 16.260586,
+        "lon": 73.723769,
+        "links": ["parking", "hall"]
+      },
+      "hall": {
+        "img": "neww/hall.jpg",
+        "lat": 16.260642,
+        "lon": 73.723808,
+        "links": ["porch", "kitchen"]
+      },
+      "devkholi": {
+        "img": "neww/devkholi.jpg",
+        "lat": 16.260522,
+        "lon": 73.723622,
+        "links": ["parking", "kitchen"]
+      },
+      "kitchen": {
+        "img": "neww/kitchen.jpg",
+        "lat": 16.260606,
+        "lon": 73.723686,
+        "links": ["hall", "restroom"]
+      },
+      "restroom": {
+        "img": "neww/restroom.jpg",
+        "lat": 16.260597,
+        "lon": 73.723694,
+        "links": ["kitchen", "bedroom"]
+      },
+      "bedroom": {
+        "img": "neww/bedroom.jpg",
+        "lat": 16.260608,
+        "lon": 73.723681,
+        "links": ["restroom", "hall"]
+      }
+    }
+  }
+
+
+}
