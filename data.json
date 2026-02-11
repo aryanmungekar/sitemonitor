@@ -399,49 +399,423 @@
   "2026-02-10": {
     "panoramic": {
       "parking": {
-        "img": "neww/parking.jpg",
-        "lat": 16.260525,
-        "lon": 73.723764,
-        "links": ["porch", "devkholi"]
+        "img": "https://i.postimg.cc/NFDC4g1P/parking.jpg",
+        "lat":   16.260538,
+        "lon":   73.723750,
+        "yaw": 250,
+        "links": ["porch"]
       },
       "porch": {
-        "img": "neww/porch.jpg",
-        "lat": 16.260586,
-        "lon": 73.723769,
-        "links": ["parking", "hall"]
+        "img": "https://i.postimg.cc/Y2zPkxJY/porch.jpg",
+        "lat":  16.260527,
+        "lon":  73.723735,
+        "yaw": 270,
+        "links": ["hall", "parking"]
       },
       "hall": {
-        "img": "neww/hall.jpg",
-        "lat": 16.260642,
-        "lon": 73.723808,
-        "links": ["porch", "kitchen"]
+        "img": "https://i.postimg.cc/26ptj9jD/hall.jpg",
+        "lat": 16.2605486,
+        "lon": 73.7237740,
+        "yaw": 35,
+        "links": ["porch", "kitchen", "devkholi", "restroom"]
       },
       "devkholi": {
-        "img": "neww/devkholi.jpg",
-        "lat": 16.260522,
-        "lon": 73.723622,
-        "links": ["parking", "kitchen"]
+        "img": "https://i.postimg.cc/KvQC75f2/devkholi.jpg",
+        "lat": 16.2605488,
+        "lon": 73.7237410,
+        "links": ["hall"]
       },
       "kitchen": {
-        "img": "neww/kitchen.jpg",
-        "lat": 16.260606,
-        "lon": 73.723686,
+        "img": "https://i.postimg.cc/rmSPDGs3/kitchen.jpg",
+        "lat": 16.2605147,
+        "lon": 73.7237698,
+        "yaw": 135,
         "links": ["hall", "restroom"]
       },
       "restroom": {
-        "img": "neww/restroom.jpg",
-        "lat": 16.260597,
-        "lon": 73.723694,
-        "links": ["kitchen", "bedroom"]
+        "img": "https://i.postimg.cc/Z5Cs8zCS/restroom.jpg",
+        "lat": 16.2605287,
+        "lon": 73.7237487,
+        "yaw": 90,
+        "links": ["kitchen", "bedroom", "hall"]
       },
       "bedroom": {
-        "img": "neww/bedroom.jpg",
-        "lat": 16.260608,
-        "lon": 73.723681,
-        "links": ["restroom", "hall"]
+        "img": "https://i.postimg.cc/zfMrCkJW/bedroom.jpg",
+        "lat": 16.2605047,
+        "lon": 73.7237550,
+        "yaw": 280,
+        "links": ["restroom"]
+      }
+    }
+  },
+  "2026-02-13": {
+    "panoramic": {
+      "bedroom": {
+        "img": "https://i.postimg.cc/zfMrCkJW/bedroom.jpg",
+        "yaw": 75.57935137061872,
+        "links": {
+          "restroom": {
+            "yaw": 73.17033881246313,
+            "pitch": -13.166782048245963
+          }
+        }
+      },
+      "restroom": {
+        "img": "https://i.postimg.cc/Z5Cs8zCS/restroom.jpg",
+        "yaw": 0,
+        "links": {
+          "bedroom": {
+            "yaw": 80.04528304879518,
+            "pitch": -18.125906530192633
+          }
+        }
+      }
+    }
+  },
+  "2026-02-15": {
+    "panoramic": {
+      "porch": {
+        "img": "https://i.postimg.cc/Y2zPkxJY/porch.jpg",
+        "yaw": -38.053182720177006,
+        "lat":   16.260538,
+        "lon":   73.723750,
+        "links": {
+          "parking": {
+            "yaw": 11.245377783592119,
+            "pitch": -14.524314866321067
+          },
+          "hall": {
+            "yaw": 150.04190054221712,
+            "pitch": -15.070651913723465
+          }
+        }
+      },
+      "parking": {
+        "img": "https://i.postimg.cc/NFDC4g1P/parking.jpg",
+        "yaw": 124.99701262376016,
+        "lat":   16.260538,
+        "lon":   73.723750,
+        "links": {
+          "porch": {
+            "yaw": -0.9355095466908985,
+            "pitch": -10.873469889748108
+          }
+        }
+      },
+      "hall": {
+        "img": "https://i.postimg.cc/26ptj9jD/hall.jpg",
+        "yaw": -48.965173270212745,
+        "lat":   16.260538,
+        "lon":   73.723750,
+        "links": {
+          "porch": {
+            "yaw": -47.02779520798439,
+            "pitch": -13.207554587003614
+          },
+          "devkholi": {
+            "yaw": -129.69944393944726,
+            "pitch": -15.368901258089984
+          },
+          "restroom": {
+            "yaw": -175.39429970769885,
+            "pitch": -14.928382107799415
+          },
+          "kitchen": {
+            "yaw": 164.86915940872638,
+            "pitch": -13.602223291928272
+          }
+        }
+      },
+      "devkholi": {
+        "img": "https://i.postimg.cc/KvQC75f2/devkholi.jpg",
+        "yaw": 0,
+        "lat":   16.260538,
+        "lon":   73.723750,
+        "links": {
+          "hall": {
+            "yaw": -5.408859679995671,
+            "pitch": -15.85963445157183
+          }
+        }
+      },
+      "kitchen": {
+        "img": "https://i.postimg.cc/rmSPDGs3/kitchen.jpg",
+        "yaw": 0,
+        "lat":   16.260538,
+        "lon":   73.723750,
+        "links": {
+          "restroom": {
+            "yaw": -177.4198240892679,
+            "pitch": -19.763689260133003
+          },
+          "hall": {
+            "yaw": -125.24647920527372,
+            "pitch": -13.743506940698978
+          }
+        }
+      },
+      "restroom": {
+        "img": "https://i.postimg.cc/Z5Cs8zCS/restroom.jpg",
+        "yaw": 0,
+        "links": {
+          "hall": {
+            "yaw": -39.55171804155914,
+            "pitch": -17.71354469894256
+          },
+          "kitchen": {
+            "yaw": 21.006569558825674,
+            "pitch": -19.90825714611346
+          },
+          "bedroom": {
+            "yaw": 80.72042907132673,
+            "pitch": -20.119840896807357
+          }
+        }
+      },
+      "bedroom": {
+        "img": "https://i.postimg.cc/zfMrCkJW/bedroom.jpg",
+        "yaw": 0,
+        "links": {
+          "restroom": {
+            "yaw": 71.9452800076072,
+            "pitch": -15.457765269379642
+          }
+        }
+      }
+    }
+  },
+  "2026-02-16": {
+  "panoramic": {
+    "porch": {
+      "img": "https://i.postimg.cc/Y2zPkxJY/porch.jpg",
+      "lat": 16.260527,
+      "lon": 73.723735,
+      "yaw": -38.053182720177006,
+      "links": {
+        "parking": {
+          "yaw": 11.245377783592119,
+          "pitch": -14.524314866321067
+        },
+        "hall": {
+          "yaw": 150.04190054221712,
+          "pitch": -15.070651913723465
+        }
+      }
+    },
+    "parking": {
+      "img": "https://i.postimg.cc/NFDC4g1P/parking.jpg",
+      "lat": 16.260538,
+      "lon": 73.723750,
+      "yaw": 125.38831356957837,
+      "links": {
+        "porch": {
+          "yaw": -0.9355095466908985,
+          "pitch": -10.873469889748108
+        }
+      }
+    },
+    "hall": {
+      "img": "https://i.postimg.cc/26ptj9jD/hall.jpg",
+      "lat": 16.2605486,
+      "lon": 73.7237740,
+      "yaw": -48.965173270212745,
+      "links": {
+        "porch": {
+          "yaw": -47.02779520798439,
+          "pitch": -13.207554587003614
+        },
+        "devkholi": {
+          "yaw": -129.69944393944726,
+          "pitch": -15.368901258089984
+        },
+        "restroom": {
+          "yaw": -175.39429970769885,
+          "pitch": -14.928382107799415
+        },
+        "kitchen": {
+          "yaw": 164.86915940872638,
+          "pitch": -13.602223291928272
+        }
+      }
+    },
+    "devkholi": {
+      "img": "https://i.postimg.cc/KvQC75f2/devkholi.jpg",
+      "lat": 16.2605488,
+      "lon": 73.7237410,
+      "yaw": 0,
+      "links": {
+        "hall": {
+          "yaw": -5.408859679995671,
+          "pitch": -15.85963445157183
+        }
+      }
+    },
+    "kitchen": {
+      "img": "https://i.postimg.cc/rmSPDGs3/kitchen.jpg",
+      "lat": 16.2605147,
+      "lon": 73.7237698,
+      "yaw": 0,
+      "links": {
+        "restroom": {
+          "yaw": -177.4198240892679,
+          "pitch": -19.763689260133003
+        },
+        "hall": {
+          "yaw": -125.24647920527372,
+          "pitch": -13.743506940698978
+        }
+      }
+    },
+    "restroom": {
+      "img": "https://i.postimg.cc/Z5Cs8zCS/restroom.jpg",
+      "lat": 16.2605287,
+      "lon": 73.7237487,
+      "yaw": 0,
+      "links": {
+        "hall": {
+          "yaw": -39.55171804155914,
+          "pitch": -17.71354469894256
+        },
+        "kitchen": {
+          "yaw": 21.006569558825674,
+          "pitch": -19.90825714611346
+        },
+        "bedroom": {
+          "yaw": 80.72042907132673,
+          "pitch": -20.119840896807357
+        }
+      }
+    },
+    "bedroom": {
+      "img": "https://i.postimg.cc/zfMrCkJW/bedroom.jpg",
+      "lat": 16.2605047,
+      "lon": 73.7237550,
+      "yaw": 0,
+      "links": {
+        "restroom": {
+          "yaw": 71.9452800076072,
+          "pitch": -15.457765269379642
+        }
       }
     }
   }
+},
 
+  "2026-02-17": {
+  "panoramic": {
+    "porch": {
+      "img": "https://teaewxyuimeiyzbrqpwj.supabase.co/storage/v1/object/public/pano/porch.webp",
+      "lat": 16.260527,
+      "lon": 73.723735,
+      "yaw": -138.053182720177006,
+      "links": {
+        "parking": {
+            "yaw": -121.28301772159301,
+            "pitch": -16.415710935771113
+          },
+          "hall": {
+            "yaw": -0.3013852619030738,
+            "pitch": -10.212843394450038
+          }
+      }
+    },
+    "parking": {
+      "img": "https://teaewxyuimeiyzbrqpwj.supabase.co/storage/v1/object/public/pano/parking.webp",
+      "lat": 16.260538,
+      "lon": 73.723750, 
+      "yaw": 161.1089843662221,
+      "links": {
+        "porch": {
+            "yaw": 51.116294476881386,
+            "pitch": -10.146877525918573
+          }
+      }
+    },
+    "hall": {
+      "img": "https://teaewxyuimeiyzbrqpwj.supabase.co/storage/v1/object/public/pano/hall.webp",
+      "lat": 16.2605486,
+      "lon": 73.7237740,
+      "yaw": -48.965173270212745,
+      "links": {
+        "devkholi": {
+            "yaw": 58.311348525724206,
+            "pitch": -18.412339081638233
+          },
+          "restroom": {
+            "yaw": -5.856584188033606,
+            "pitch": -15.709206953027616
+          },
+          "kitchen": {
+            "yaw": -34.774110999943424,
+            "pitch": -9.022584628163107
+          },
+          "porch": {
+            "yaw": 145.76912230707097,
+            "pitch": -15.10368511464622
+          }
+      }
+    },
+    "devkholi": {
+      "img": "https://teaewxyuimeiyzbrqpwj.supabase.co/storage/v1/object/public/pano/devkholi.webp",
+      "lat": 16.2605488,
+      "lon": 73.7237410,
+      "yaw": 0,
+      "links": {
+        "hall": {
+            "yaw": -83.5888299771205,
+            "pitch": -14.947625514129424
+          }
+      }
+    },
+    "kitchen": {
+      "img": "https://teaewxyuimeiyzbrqpwj.supabase.co/storage/v1/object/public/pano/kitchen.webp",
+      "lat": 16.2605147,
+      "lon": 73.7237698,
+      "yaw": 0,
+      "links": {
+        "restroom": {
+            "yaw": 46.10514686643357,
+            "pitch": -21.413922945562746
+          },
+          "hall": {
+            "yaw": 79.88709453355918,
+            "pitch": -20.75042615184356
+          }
+      }
+    },
+    "restroom": {
+      "img": "https://teaewxyuimeiyzbrqpwj.supabase.co/storage/v1/object/public/pano/restroom.webp",
+      "lat": 16.2605287,
+      "lon": 73.7237487,
+      "yaw": 0,
+      "links": {
+        "bedroom": {
+            "yaw": -20.081646493789435,
+            "pitch": -13.675213075776067
+          },
+          "kitchen": {
+            "yaw": -61.89639317220263,
+            "pitch": -19.709548126116474
+          },
+           "hall": {
+            "yaw": -102.42397683160738,
+            "pitch": -23.822984327007184
+          }
+      }
+    },
+    "bedroom": {
+      "img": "https://teaewxyuimeiyzbrqpwj.supabase.co/storage/v1/object/public/pano/bedroom.webp",
+      "lat": 16.2605047,
+      "lon": 73.7237550,
+      "yaw": 0,
+      "links": {
+        "restroom": {
+            "yaw": 90.61838302684241,
+            "pitch": -15.04714831767475
+          }
+      }
+    }
+  }
+}
 
 }
