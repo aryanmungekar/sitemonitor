@@ -15,10 +15,10 @@
   <script src="https://cdn.jsdelivr.net/npm/pannellum/build/pannellum.js"></script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Liter&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Liter&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
 
-<link rel="preconnect" href="https://teaewxyuimeiyzbrqpwj.supabase.co">
+  <link rel="preconnect" href="https://teaewxyuimeiyzbrqpwj.supabase.co">
 
   <style>
     /* ========== BASE ========== */
@@ -131,7 +131,7 @@
     .card-body {
       padding: 12px 14px;
       background: #4c5975;
-    color: white;
+      color: white;
     }
 
     .title {
@@ -194,21 +194,22 @@
     }
 
     /* ========== MAP POPUP ========== */
-   #mapPopup {
-  position: fixed;
-  bottom: 27px;   /* 👈 anchor from bottom */
-  left: 5px;
-  width: 300px;
-  height: 200px;
-  /* background: white; */
-  border-radius: 5px;
-  z-index: 5000;
-  display: none;
-  resize: both;
-  overflow: hidden;
+    #mapPopup {
+      position: fixed;
+      bottom: 27px;
+      /* 👈 anchor from bottom */
+      left: 5px;
+      width: 300px;
+      height: 200px;
+      /* background: white; */
+      border-radius: 5px;
+      z-index: 5000;
+      display: none;
+      resize: both;
+      overflow: hidden;
 
-  transition: height 0.35s ease;
-}
+      transition: height 0.35s ease;
+    }
 
     #mapHeader {
       background: #0f172a;
@@ -225,23 +226,23 @@
     }
 
     /* Minimized Map State */
-#mapPopup.minimized {
-  height: 40px !important;
-  resize: none;
-  overflow: hidden;
-}
+    #mapPopup.minimized {
+      height: 40px !important;
+      resize: none;
+      overflow: hidden;
+    }
 
-#mapPopup.minimized #map {
-  display: none;
-}
+    #mapPopup.minimized #map {
+      display: none;
+    }
 
 
 
-#mapPopup.minimized {
-  height: 40px !important;
-  resize: none;
-  overflow: hidden;
-}
+    #mapPopup.minimized {
+      height: 40px !important;
+      resize: none;
+      overflow: hidden;
+    }
 
 
 
@@ -249,49 +250,49 @@
    PANORAMA HOTSPOT VISIBILITY
 ================================ */
 
-/* ===== 3DVista Style Arrow ===== */
-/* ===== Flat White Circle ===== */
+    /* ===== 3DVista Style Arrow ===== */
+    /* ===== Flat White Circle ===== */
 
-.pnlm-hotspot {
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  /* background: #ffffff; */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+    .pnlm-hotspot {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      /* background: #ffffff; */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
-/* Bent arrow */
-.pnlm-hotspot .arrow-icon {
-  width: 18px;
-  height: 18px;
-  position: relative;
-}
+    /* Bent arrow */
+    .pnlm-hotspot .arrow-icon {
+      width: 18px;
+      height: 18px;
+      position: relative;
+    }
 
-/* horizontal shaft */
-.pnlm-hotspot .arrow-icon::before {
-  content: "";
-  position: absolute;
-  width: 14px;
-  height: 3px;
-  background: #111;
-  top: 8px;
-  left: 0;
-}
+    /* horizontal shaft */
+    .pnlm-hotspot .arrow-icon::before {
+      content: "";
+      position: absolute;
+      width: 14px;
+      height: 3px;
+      background: #111;
+      top: 8px;
+      left: 0;
+    }
 
-/* arrow head */
-.pnlm-hotspot .arrow-icon::after {
-  content: "";
-  position: absolute;
-  width: 8px;
-  height: 8px;
-  border-top: 3px solid #111;
-  border-right: 3px solid #111;
-  top: 3px;
-  right: 0;
-  transform: rotate(45deg);
-}
+    /* arrow head */
+    .pnlm-hotspot .arrow-icon::after {
+      content: "";
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      border-top: 3px solid #111;
+      border-right: 3px solid #111;
+      top: 3px;
+      right: 0;
+      transform: rotate(45deg);
+    }
 
 
 
@@ -402,7 +403,7 @@
       top: 10px;
       right: 10px;
       z-index: 30;
-      
+
     }
 
     .compare-header select {
@@ -472,22 +473,20 @@
   </div>
 
   <!-- MAP POPUP -->
-<div id="mapPopup">
-  <div id="mapHeader">
-    <span>Map View</span>
-    <div>
-      <span onclick="toggleMapMinimize()" 
-            style="cursor:pointer;margin-right:10px;">—</span>
-      <span onclick="closeMap()" 
-            style="cursor:pointer;">✕</span>
+  <div id="mapPopup">
+    <div id="mapHeader">
+      <span>Map View</span>
+      <div>
+        <span onclick="toggleMapMinimize()" style="cursor:pointer;margin-right:10px;">—</span>
+        <span onclick="closeMap()" style="cursor:pointer;">✕</span>
+      </div>
     </div>
+    <div id="map"></div>
   </div>
-  <div id="map"></div>
-</div>
 
 
 
-  
+
 
   <!-- SPLIT COMPARE VIEW -->
   <div class="compare-view" id="compareView" style="display:none;">
@@ -552,6 +551,7 @@
     let rightSceneId = null;
 
     let compareLocked = false; // default: unlocked
+    let addedScenes = {};
 
 
 
@@ -606,13 +606,13 @@
 
 
     function toggleMapMinimize() {
-  const popup = document.getElementById("mapPopup");
-  const isMinimized = popup.classList.toggle("minimized");
+      const popup = document.getElementById("mapPopup");
+      const isMinimized = popup.classList.toggle("minimized");
 
-  if (!isMinimized && map) {
-    setTimeout(() => map.invalidateSize(), 200);
-  }
-}
+      if (!isMinimized && map) {
+        setTimeout(() => map.invalidateSize(), 200);
+      }
+    }
 
 
     function fadeOutPano() {
@@ -930,7 +930,7 @@
 
 
     /* LOAD DATA */
-    fetch("data.json")
+    fetch("data1.json")
       .then(res => res.json())
       .then(data => {
         allData = data;
@@ -1009,7 +1009,7 @@
         card.innerHTML = `
       <div class="thumb">
         <img 
-  src="${s.thumb}"
+  src="${s.img}"
   loading="lazy"
   decoding="async"
   onclick="openScene('${id}')">
@@ -1044,52 +1044,62 @@
     }
 
 
-
 function openPano(scene, startYaw = null) {
 
   document.getElementById("viewer360").style.display = "block";
   document.getElementById("mediaGrid").style.display = "none";
 
-  fadeOutPano();
+  const panoId = currentSceneId;
+  const panoUrl = scene.img;
 
-  setTimeout(() => {
+  if (!panoUrl) {
+    console.error("Missing image for scene:", panoId);
+    return;
+  }
 
-    if (viewer) {
-      viewer.destroy();
-      viewer = null;
-    }
-
-let panoUrl = scene.img;
-
-
+  // 🔥 Create viewer only once
+  if (!viewer) {
     viewer = pannellum.viewer("pano", {
+      default: {
+        firstScene: panoId,
+        sceneFadeDuration: 500
+      },
+      scenes: {}
+    });
+  }
+
+  // 🔥 Add scene only once
+  if (!addedScenes[panoId]) {
+
+    viewer.addScene(panoId, {
       type: "equirectangular",
       panorama: panoUrl,
-      autoLoad: true,   // load automatically
-      compass: true,
-
       yaw: startYaw !== null ? startYaw : (scene.yaw || 0),
       pitch: scene.pitch || 0,
-
       hfov: 110,
       minHfov: 60,
       maxHfov: 110,
-      hotSpots: []
+      compass: true
     });
 
-    viewer.on("load", () => {
-      fadeInPano();
+    addedScenes[panoId] = true;
+  }
 
-      if (vrEnabled) {
-        const hotspots = buildHotspots(scene);
-        hotspots.forEach(h => viewer.addHotSpot(h));
-      }
-    });
+  // 🔥 Load scene
+  viewer.loadScene(panoId);
 
-  }, 250);
+  // 🔥 Add hotspots AFTER small delay
+  if (vrEnabled) {
+    setTimeout(() => {
+      const hotspots = buildHotspots(scene);
+      hotspots.forEach(h => viewer.addHotSpot(h));
+    }, 100);
+  }
+
+  preloadLinkedScenes(scene);
 }
 
-    
+
     function buildHotspots(scene) {
       const links = scene.links || {};
 
@@ -1100,24 +1110,24 @@ let panoUrl = scene.img;
           yaw: link.yaw,
           type: "custom",
           cssClass: "pnlm-hotspot",
-createTooltipFunc: function(div) {
+          createTooltipFunc: function (div) {
 
-  const img = document.createElement("img");
-  img.src = "https://teaewxyuimeiyzbrqpwj.supabase.co/storage/v1/object/public/pano/pin%20-%20Edited.png";   // path to your image
-  img.style.width = "30px";
-  img.style.height = "30px";
-  img.style.pointerEvents = "none";
+            const img = document.createElement("img");
+            img.src = "https://teaewxyuimeiyzbrqpwj.supabase.co/storage/v1/object/public/pano/pin%20-%20Edited.png";   // path to your image
+            img.style.width = "30px";
+            img.style.height = "30px";
+            img.style.pointerEvents = "none";
 
-  div.appendChild(img);
+            div.appendChild(img);
 
-  // rotate whole hotspot according to yaw
-  div.style.transform = `rotate(${link.yaw}deg)`;
-},
+            // rotate whole hotspot according to yaw
+            div.style.transform = `rotate(${link.yaw}deg)`;
+          },
 
 
           createTooltipArgs: ` ${target}`,
           clickHandlerFunc: () =>
-  animateAndSwitch(target, link.yaw)
+            animateAndSwitch(target, link.yaw)
 
         }));
       }
@@ -1138,52 +1148,35 @@ createTooltipFunc: function(div) {
       }));
     }
 
+    function preloadLinkedScenes(scene) {
+      const links = scene.links || {};
+
+      Object.keys(links).forEach(targetId => {
+        const targetScene = scenesData[targetId];
+        if (!targetScene) return;
+
+        const img = new Image();
+        img.src = targetScene.img;
+      });
+    }
+
+
 function animateAndSwitch(targetId, targetYaw) {
 
   if (!viewer) return;
 
-  const panoEl = document.getElementById("pano");
-  const startHfov = viewer.getHfov();
-  const fixedPitch = viewer.getPitch();
-
-  // 🧭 Smooth rotate toward hotspot
-  viewer.setYaw(targetYaw, 900);
-
-  // 🔒 Keep pitch constant (animated lock)
-  viewer.setPitch(fixedPitch, 900);
+  viewer.setYaw(targetYaw, 400);
 
   setTimeout(() => {
-
-    // 🔍 Real animated zoom using pannellum engine
-    viewer.setHfov(Math.max(startHfov - 30, 55), 2200);
-
-    // 🎥 Depth illusion using scale
-    panoEl.style.transition = "transform 2.2s ease-in, opacity 0.6s ease-out";
-    panoEl.style.transform = "scale(1.15)";
-
-    // Fade near end
-    setTimeout(() => {
-      panoEl.style.opacity = "0";
-    }, 1700);
-
-    // Switch after animation
-    setTimeout(() => {
-      panoEl.style.transform = "scale(1)";
-      panoEl.style.opacity = "1";
-      openScene(targetId);
-    }, 2300);
-
-  }, 300);
+    currentSceneId = targetId;
+    openPano(scenesData[targetId]);
+  }, 450);
 }
-
 
 
     function closePano() {
       document.getElementById("viewer360").style.display = "none";
       document.getElementById("mediaGrid").style.display = "grid";
-
-      if (viewer) viewer.destroy();
-      viewer = null;
     }
 
 
