@@ -590,7 +590,7 @@
       "img": "https://i.postimg.cc/Y2zPkxJY/porch.jpg",
       "lat": 16.260527,
       "lon": 73.723735,
-      "yaw": -38.053182720177006,
+      "yaw": -38.351062457447654,
       "links": {
         "parking": {
           "yaw": 11.245377783592119,
@@ -705,9 +705,10 @@
   "panoramic": {
     "porch": {
       "img": "https://teaewxyuimeiyzbrqpwj.supabase.co/storage/v1/object/public/pano/porch.webp",
+      "thumb": "",
       "lat": 16.260527,
       "lon": 73.723735,
-      "yaw": -138.053182720177006,
+      "yaw": 100,
       "links": {
         "parking": {
             "yaw": -121.28301772159301,
@@ -721,6 +722,7 @@
     },
     "parking": {
       "img": "https://teaewxyuimeiyzbrqpwj.supabase.co/storage/v1/object/public/pano/parking.webp",
+      "thumb": "",
       "lat": 16.260538,
       "lon": 73.723750, 
       "yaw": 161.1089843662221,
@@ -733,6 +735,7 @@
     },
     "hall": {
       "img": "https://teaewxyuimeiyzbrqpwj.supabase.co/storage/v1/object/public/pano/hall.webp",
+      "thumb": "https://i.postimg.cc/sXHjCVJF/hall.jpg",
       "lat": 16.2605486,
       "lon": 73.7237740,
       "yaw": -48.965173270212745,
@@ -757,6 +760,7 @@
     },
     "devkholi": {
       "img": "https://teaewxyuimeiyzbrqpwj.supabase.co/storage/v1/object/public/pano/devkholi.webp",
+      "thumb": "",
       "lat": 16.2605488,
       "lon": 73.7237410,
       "yaw": 0,
@@ -769,6 +773,7 @@
     },
     "kitchen": {
       "img": "https://teaewxyuimeiyzbrqpwj.supabase.co/storage/v1/object/public/pano/kitchen.webp",
+      "thumb": "https://i.postimg.cc/TPCGnRFg/kitchen.jpg",
       "lat": 16.2605147,
       "lon": 73.7237698,
       "yaw": 0,
@@ -785,6 +790,7 @@
     },
     "restroom": {
       "img": "https://teaewxyuimeiyzbrqpwj.supabase.co/storage/v1/object/public/pano/restroom.webp",
+      "thumb": "",
       "lat": 16.2605287,
       "lon": 73.7237487,
       "yaw": 0,
@@ -805,6 +811,7 @@
     },
     "bedroom": {
       "img": "https://teaewxyuimeiyzbrqpwj.supabase.co/storage/v1/object/public/pano/bedroom.webp",
+      "thumb": "https://i.postimg.cc/Pr24G9g8/bedroom.jpg",
       "lat": 16.2605047,
       "lon": 73.7237550,
       "yaw": 0,
