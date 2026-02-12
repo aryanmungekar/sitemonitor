@@ -194,20 +194,21 @@
     }
 
     /* ========== MAP POPUP ========== */
-    #mapPopup {
-      position: fixed;
-      top: 65%;
-      left: 1%;
-      width: 300px;
-      height: 200px;
-      background: white;
-      border-radius: 5px;
-      /* border: 2px solid #2563eb; */
-      z-index: 5000;
-      display: none;
-      resize: both;
-      overflow: hidden;
-    }
+   #mapPopup {
+  position: fixed;
+  bottom: 27px;   /* 👈 anchor from bottom */
+  left: 5px;
+  width: 300px;
+  height: 200px;
+  /* background: white; */
+  border-radius: 5px;
+  z-index: 5000;
+  display: none;
+  resize: both;
+  overflow: hidden;
+
+  transition: height 0.35s ease;
+}
 
     #mapHeader {
       background: #0f172a;
@@ -223,41 +224,78 @@
       height: calc(100% - 40px);
     }
 
+    /* Minimized Map State */
+#mapPopup.minimized {
+  height: 40px !important;
+  resize: none;
+  overflow: hidden;
+}
+
+#mapPopup.minimized #map {
+  display: none;
+}
+
+
+
+#mapPopup.minimized {
+  height: 40px !important;
+  resize: none;
+  overflow: hidden;
+}
+
+
 
     /* ===============================
    PANORAMA HOTSPOT VISIBILITY
 ================================ */
 
-    .pnlm-hotspot {
-      position: absolute;
-      width: 34px;
-      height: 34px;
-      background: rgba(37, 99, 235, 0.95);
-      border-radius: 50%;
-      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.35);
-      cursor: pointer;
-      transform-origin: center;
-      z-index: 5;
-    }
+/* ===== 3DVista Style Arrow ===== */
+/* ===== Flat White Circle ===== */
 
-    /* Plus icon */
-    .pnlm-hotspot::after {
-      content: "+";
-      color: #fff;
-      font-size: 22px;
-      font-weight: 700;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-    }
+.pnlm-hotspot {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  /* background: #ffffff; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Bent arrow */
+.pnlm-hotspot .arrow-icon {
+  width: 18px;
+  height: 18px;
+  position: relative;
+}
+
+/* horizontal shaft */
+.pnlm-hotspot .arrow-icon::before {
+  content: "";
+  position: absolute;
+  width: 14px;
+  height: 3px;
+  background: #111;
+  top: 8px;
+  left: 0;
+}
+
+/* arrow head */
+.pnlm-hotspot .arrow-icon::after {
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-top: 3px solid #111;
+  border-right: 3px solid #111;
+  top: 3px;
+  right: 0;
+  transform: rotate(45deg);
+}
 
 
-    /* Hover effect */
-    .pnlm-hotspot:hover {
-      background: #1d4ed8 !important;
-      box-shadow: 0 0 0 6px rgba(37, 99, 235, 0.4);
-    }
+
+
 
     /* Label (tooltip) */
     .pnlm-tooltip span {
@@ -434,13 +472,20 @@
   </div>
 
   <!-- MAP POPUP -->
-  <div id="mapPopup">
-    <div id="mapHeader">
-      <span>Map View</span>
-      <span onclick="closeMap()">✕</span>
+<div id="mapPopup">
+  <div id="mapHeader">
+    <span>Map View</span>
+    <div>
+      <span onclick="toggleMapMinimize()" 
+            style="cursor:pointer;margin-right:10px;">—</span>
+      <span onclick="closeMap()" 
+            style="cursor:pointer;">✕</span>
     </div>
-    <div id="map"></div>
   </div>
+  <div id="map"></div>
+</div>
+
+
 
   
 
@@ -558,6 +603,17 @@
         }
       }
     }
+
+
+    function toggleMapMinimize() {
+  const popup = document.getElementById("mapPopup");
+  const isMinimized = popup.classList.toggle("minimized");
+
+  if (!isMinimized && map) {
+    setTimeout(() => map.invalidateSize(), 200);
+  }
+}
+
 
     function fadeOutPano() {
       const el = document.getElementById("pano");
@@ -1044,7 +1100,21 @@ let panoUrl = scene.img;
           yaw: link.yaw,
           type: "custom",
           cssClass: "pnlm-hotspot",
-          createTooltipFunc: hotspotLabel,
+createTooltipFunc: function(div) {
+
+  const img = document.createElement("img");
+  img.src = "https://teaewxyuimeiyzbrqpwj.supabase.co/storage/v1/object/public/pano/pin%20-%20Edited.png";   // path to your image
+  img.style.width = "30px";
+  img.style.height = "30px";
+  img.style.pointerEvents = "none";
+
+  div.appendChild(img);
+
+  // rotate whole hotspot according to yaw
+  div.style.transform = `rotate(${link.yaw}deg)`;
+},
+
+
           createTooltipArgs: ` ${target}`,
           clickHandlerFunc: () =>
   animateAndSwitch(target, link.yaw)
