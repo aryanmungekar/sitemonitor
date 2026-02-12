@@ -30,21 +30,114 @@
     }
 
     /* ========== HEADER ========== */
-    .header {
-      background: #0f172a;
-      color: #fff;
-      padding: 14px 22px;
-      display: flex;
-      justify-content: flex-start;
-      align-items: center;
-      gap: 30px;
+
+.header {
+  background: #0f172a;
+  color: #fff;
+  padding: 12px 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #1e293b;
+}
+
+.header-left h2 {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: .3px;
+  min-width: 250px;
+  border-right: 5px solid white;
+}
+
+/* CENTER CONTROLS */
+.header-center {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.try{
+        display: flex;
+        justify-content: space-between;
+        margin: 10px;
+        gap: 20px;
+        width: 100%;
     }
 
-    .header h2 {
-      margin: 0;
-      font-size: 18px;
-      font-weight: 600;
-    }
+/* DROPDOWN */
+.media-filter {
+  background: #1e293b;
+  color: white;
+  border: 1px solid #334155;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 13px;
+  cursor: pointer;
+      width: 150px;
+    height: 100%;
+    font-family: system-ui;
+    font-size: 14px;
+    font-weight: 600;   
+}
+
+.media-filter:focus {
+  outline: none;
+  border-color: #4c5975;
+      width: 150px;
+    height: 100%;
+    font-family: system-ui;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.menu-icon {
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+
+/* HEADER BUTTON */
+.header-btn {
+  background: #2563eb;
+  color: #fff;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.header-btn:hover {
+  background: #1d4ed8;
+}
+
+/* ACCOUNT ICON */
+.header-right {
+  display: flex;
+  align-items: center;
+}
+
+.account-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #1e293b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.account-icon:hover {
+  background: #334155;
+}
+
 
     /* ========== DATE CHIPS ========== */
     .date-bar {
@@ -185,7 +278,7 @@
 
     #close360 {
       position: absolute;
-      top: 10px;
+      top: 108px;
       right: 16px;
       color: white;
       font-size: 28px;
@@ -435,6 +528,8 @@
       padding: 6px 10px;
       border-radius: 6px;
     }
+
+    
   </style>
 </head>
 
@@ -442,19 +537,52 @@
 
   <!-- HEADER -->
   <div class="header">
+
+  <!-- LEFT: Title -->
+  <div class="header-left">
     <h2>Indospace Anantapur – Media</h2>
-    <div class="actions">
-      <label class="toggle">
-        <span class="toggle-text">Panoromic</span>
-        <input type="checkbox" id="vrToggle" onchange="toggleVRTour(this)">
-
-        <span class="slider"></span>
-        <span class="toggle-text">VR Tour</span>
-      </label>
+  </div>
 
 
-      <button onclick="setViewMode('split')">Split</button>
+  <div class="try">
+  <!-- CENTER: Controls -->
+  <div class="header-center">
+
+    <!-- Media Filter Dropdown -->
+    <select class="media-filter" id="mediaFilter">
+      <option value="all">All Media</option>
+      <option value="panorama">🏞 Panoramas</option>
+      <option value="drone">🛰 Drone</option>
+      <option value="video">📽 Videos</option>
+    </select>
+
+    <!-- VR Toggle -->
+    <label class="toggle">
+      <span class="toggle-text">VR Tour   Off</span>
+      <input type="checkbox" id="vrToggle" onchange="toggleVRTour(this)">
+      <span class="slider"></span>
+      <span class="toggle-text">On</span>
+    </label>
+
+    <!-- Split View Button -->
+    <button class="header-btn toggle-text" onclick="setViewMode('split')">
+      Split View
+    </button>
+
+  </div>
+ 
+
+  <!-- RIGHT: Account -->
+  <div class="header-right">
+    <div class="account-icon">
+      👤
     </div>
+  </div>
+
+   </div>
+
+</div>
+
 
 
   </div>
@@ -1305,6 +1433,15 @@ function animateAndSwitch(targetId, linkYaw) {
         isDragging = false;
       });
     })();
+
+    document.getElementById("mediaFilter").addEventListener("change", function () {
+  const value = this.value;
+  console.log("Selected filter:", value);
+
+  // For now just console log
+  // Later you can filter grid based on type
+});
+
   </script>
 
 </body>
