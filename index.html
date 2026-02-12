@@ -18,6 +18,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Liter&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
 
+<link rel="preconnect" href="https://teaewxyuimeiyzbrqpwj.supabase.co">
+
   <style>
     /* ========== BASE ========== */
     body {
@@ -869,6 +871,8 @@
 
 
 
+
+
     /* LOAD DATA */
     fetch("data.json")
       .then(res => res.json())
@@ -948,7 +952,12 @@
 
         card.innerHTML = `
       <div class="thumb">
-        <img src="${s.img}" onclick="openScene('${id}')">
+        <img 
+  src="${s.thumb}"
+  loading="lazy"
+  decoding="async"
+  onclick="openScene('${id}')">
+
       </div>
       <div class="card-body">
         <div class="title">${id}</div>
@@ -979,54 +988,52 @@
     }
 
 
-    /* PANORAMA */
-    function openPano(scene, startYaw = null) {
-      const panoEl = document.getElementById("pano");
 
-      document.getElementById("viewer360").style.display = "block";
-      document.getElementById("mediaGrid").style.display = "none";
+function openPano(scene, startYaw = null) {
 
-      // 🚶 fade + move forward
-      fadeOutPano();
+  document.getElementById("viewer360").style.display = "block";
+  document.getElementById("mediaGrid").style.display = "none";
 
-      setTimeout(() => {
-        if (viewer) viewer.destroy();
+  fadeOutPano();
 
-        viewer = pannellum.viewer("pano", {
-          type: "equirectangular",
-          panorama: scene.img,
-          autoLoad: true,
-          compass: true,
+  setTimeout(() => {
 
-          yaw: startYaw !== null ? startYaw : (scene.yaw || 0),
-          pitch: scene.pitch || 0,
-
-          hfov: 105,          // slightly tighter = forward feel
-          minHfov: 60,
-          maxHfov: 120,
-
-
-
-          hotSpots: []
-
-        });
-
-        viewer.on("load", () => {
-          fadeInPano();
-
-          // 🔥 Add hotspots if VR is enabled
-          if (vrEnabled) {
-            const hotspots = buildHotspots(scene);
-            hotspots.forEach(h => viewer.addHotSpot(h));
-          }
-        });
-
-        viewer.on("viewchange", () => {
-          lastViewYaw = viewer.getYaw();
-        });
-
-      }, 260); // sync with CSS transition
+    if (viewer) {
+      viewer.destroy();
+      viewer = null;
     }
+
+let panoUrl = scene.img;
+
+
+    viewer = pannellum.viewer("pano", {
+      type: "equirectangular",
+      panorama: panoUrl,
+      autoLoad: true,   // load automatically
+      compass: true,
+
+      yaw: startYaw !== null ? startYaw : (scene.yaw || 0),
+      pitch: scene.pitch || 0,
+
+      hfov: 110,
+      minHfov: 60,
+      maxHfov: 110,
+      hotSpots: []
+    });
+
+    viewer.on("load", () => {
+      fadeInPano();
+
+      if (vrEnabled) {
+        const hotspots = buildHotspots(scene);
+        hotspots.forEach(h => viewer.addHotSpot(h));
+      }
+    });
+
+  }, 250);
+}
+
+    
     function buildHotspots(scene) {
       const links = scene.links || {};
 
@@ -1040,10 +1047,8 @@
           createTooltipFunc: hotspotLabel,
           createTooltipArgs: ` ${target}`,
           clickHandlerFunc: () =>
-            openScene(target, {
-              fromYaw: viewer.getYaw(),
-              linkYaw: link.yaw
-            })
+  animateAndSwitch(target, link.yaw)
+
         }));
       }
 
@@ -1062,6 +1067,45 @@
           })
       }));
     }
+
+function animateAndSwitch(targetId, targetYaw) {
+
+  if (!viewer) return;
+
+  const panoEl = document.getElementById("pano");
+  const startHfov = viewer.getHfov();
+  const fixedPitch = viewer.getPitch();
+
+  // 🧭 Smooth rotate toward hotspot
+  viewer.setYaw(targetYaw, 900);
+
+  // 🔒 Keep pitch constant (animated lock)
+  viewer.setPitch(fixedPitch, 900);
+
+  setTimeout(() => {
+
+    // 🔍 Real animated zoom using pannellum engine
+    viewer.setHfov(Math.max(startHfov - 30, 55), 2200);
+
+    // 🎥 Depth illusion using scale
+    panoEl.style.transition = "transform 2.2s ease-in, opacity 0.6s ease-out";
+    panoEl.style.transform = "scale(1.15)";
+
+    // Fade near end
+    setTimeout(() => {
+      panoEl.style.opacity = "0";
+    }, 1700);
+
+    // Switch after animation
+    setTimeout(() => {
+      panoEl.style.transform = "scale(1)";
+      panoEl.style.opacity = "1";
+      openScene(targetId);
+    }, 2300);
+
+  }, 300);
+}
+
 
 
     function closePano() {
