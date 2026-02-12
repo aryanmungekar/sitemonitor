@@ -1085,8 +1085,14 @@ function openPano(scene, startYaw = null) {
     addedScenes[panoId] = true;
   }
 
-  // 🔥 Load scene
-  viewer.loadScene(panoId);
+viewer.loadScene(
+  panoId,
+  scene.pitch || 0,
+  startYaw !== null ? startYaw : (scene.yaw || 0),
+  110
+);
+
+
 
   // 🔥 Add hotspots AFTER small delay
   if (vrEnabled) {
@@ -1161,16 +1167,31 @@ function openPano(scene, startYaw = null) {
     }
 
 
-function animateAndSwitch(targetId, targetYaw) {
+function animateAndSwitch(targetId, linkYaw) {
 
   if (!viewer) return;
 
-  viewer.setYaw(targetYaw, 400);
+  const fromScene = scenesData[currentSceneId];
+  const toScene = scenesData[targetId];
+
+  // 1️⃣ Rotate toward hotspot
+  viewer.setYaw(linkYaw, 400);
 
   setTimeout(() => {
+
+    // 2️⃣ Convert to global direction
+    const globalDirection = (fromScene.yaw || 0) + linkYaw;
+
+    // 3️⃣ Convert to target relative yaw
+    const newYaw = normalizeYaw(
+      globalDirection - (toScene.yaw || 0)
+    );
+
     currentSceneId = targetId;
-    openPano(scenesData[targetId]);
-  }, 450);
+
+    openPano(toScene, newYaw);
+
+  }, 400);
 }
 
 
@@ -1289,4 +1310,3 @@ function animateAndSwitch(targetId, targetYaw) {
 </body>
 
 </html>
-
