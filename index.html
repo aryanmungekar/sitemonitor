@@ -16,8 +16,9 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Liter&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
-
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
   <link rel="preconnect" href="https://teaewxyuimeiyzbrqpwj.supabase.co">
 
   <style>
@@ -90,14 +91,6 @@
     font-size: 14px;
     font-weight: 600;
 }
-
-.menu-icon {
-  width: 16px;
-  height: 16px;
-  margin-right: 8px;
-  vertical-align: middle;
-}
-
 
 /* HEADER BUTTON */
 .header-btn {
@@ -530,7 +523,104 @@
     }
 
     
-  </style>
+  
+  /* ===============================
+   PANO VERTICAL TOOLBAR
+================================ */
+
+.pano-toolbar {
+  position: absolute;
+  top: 135px;
+  right: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  background: #0f172aa8;
+  backdrop-filter: blur(8px);
+  padding: 14px 10px;
+  border-radius: 14px;
+  z-index: 7000;
+}
+
+.tool-btn {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.tool-btn:hover {
+  background: rgba(255,255,255,0.15);
+  transform: scale(1.08);
+}
+
+.tool-btn .material-icons {
+  font-size: 22px;
+  color: #e2e8f0;
+}
+
+.tool-label {
+  position: absolute;
+  right: 55px;
+  background: #0f172a;
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateX(10px);
+  transition: all 0.25s ease;
+  pointer-events: none;
+}
+
+.tool-btn:hover .tool-label {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ===============================
+   TOAST MESSAGE
+================================ */
+
+.custom-toast {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: rgba(15, 23, 42, 0.95);
+  color: #fff;
+  padding: 12px 18px;
+  border-radius: 8px;
+  font-size: 14px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+  z-index: 10000;
+}
+
+.custom-toast.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===============================
+   SPLIT TOOLBAR POSITION
+================================ */
+
+.split-toolbar {
+  top: 45px;     /* below date selectors */
+  right: 15px;
+}
+
+
+</style>
 </head>
 
 <body>
@@ -551,24 +641,10 @@
     <!-- Media Filter Dropdown -->
     <select class="media-filter" id="mediaFilter">
       <option value="all">All Media</option>
-      <option value="panorama">🏞 Panoramas</option>
-      <option value="drone">🛰 Drone</option>
-      <option value="video">📽 Videos</option>
+      <option value="panorama">Panoramas</option>
+      <option value="drone">Drone</option>
+      <option value="video">Videos</option>
     </select>
-
-    <!-- VR Toggle -->
-    <label class="toggle">
-      <span class="toggle-text">VR Tour   Off</span>
-      <input type="checkbox" id="vrToggle" onchange="toggleVRTour(this)">
-      <span class="slider"></span>
-      <span class="toggle-text">On</span>
-    </label>
-
-    <!-- Split View Button -->
-    <button class="header-btn toggle-text" onclick="setViewMode('split')">
-      Split View
-    </button>
-
   </div>
  
 
@@ -596,8 +672,38 @@
 
   <!-- PANORAMA POPUP -->
   <div id="viewer360">
-    <span id="close360" onclick="closePano()">✕</span>
     <div id="pano"></div>
+
+    <!-- PANO TOOLBAR -->
+<div class="pano-toolbar">
+
+  <div class="tool-btn" onclick="closePano()">
+    <span class="material-icons">close</span>
+    <div class="tool-label">Close</div>
+  </div>
+
+  <div class="tool-btn" onclick="toggleVRTourFromToolbar()">
+    <span class="material-icons">view_in_ar</span>
+    <div class="tool-label">VR Tour</div>
+  </div>
+
+  <div class="tool-btn" onclick="setViewMode('split')">
+    <span class="material-icons">compare</span>
+    <div class="tool-label">Split View</div>
+  </div>
+
+  <div class="tool-btn" onclick="downloadCurrentPano()">
+    <span class="material-icons">download</span>
+    <div class="tool-label">Download</div>
+  </div>
+
+  <div class="tool-btn" onclick="capturePano()">
+    <span class="material-icons">photo_camera</span>
+    <div class="tool-label">Capture</div>
+  </div>
+
+</div>
+
   </div>
 
   <!-- MAP POPUP -->
@@ -635,9 +741,38 @@
       <!-- RIGHT -->
       <div class="compare-pane">
         <div class="compare-header">
-          <button onclick="toggleCompareLock()">🔓 Unlock</button>
           <select id="rightDateSelect" onchange="updateCompare('right')"></select>
         </div>
+        <!-- SPLIT TOOLBAR -->
+<div class="split-toolbar pano-toolbar">
+
+  <div class="tool-btn" onclick="closeCompare()">
+    <span class="material-icons">close</span>
+    <div class="tool-label">Close</div>
+  </div>
+
+    <div class="tool-btn" onclick="toggleCompareLock()" id="lockBtn">
+    <span class="material-icons" id="lockIcon">lock_open</span>
+    <div class="tool-label" id="lockLabel">Unlock</div>
+  </div>
+
+  <div class="tool-btn" onclick="exitSplitToPano()">
+    <span class="material-icons">panorama</span>
+    <div class="tool-label">Pano Mode</div>
+  </div>
+
+  <div class="tool-btn" onclick="downloadSplitView()">
+    <span class="material-icons">download</span>
+    <div class="tool-label">Download</div>
+  </div>
+
+  <div class="tool-btn" onclick="captureSplitView()">
+    <span class="material-icons">photo_camera</span>
+    <div class="tool-label">Capture</div>
+  </div>
+
+</div>
+
 
         <div id="rightPano" class="compare-pano"></div>
         <div class="split-map" id="rightMap"></div>
@@ -1104,12 +1239,20 @@
     }
 
     function toggleCompareLock() {
-      compareLocked = !compareLocked;
+  compareLocked = !compareLocked;
 
-      document.querySelectorAll(".compare-header button").forEach(btn => {
-        btn.textContent = compareLocked ? "🔒 Lock" : "🔓 Unlock";
-      });
-    }
+  const icon = document.getElementById("lockIcon");
+  const label = document.getElementById("lockLabel");
+
+  if (compareLocked) {
+    icon.textContent = "lock";
+    label.textContent = "Lock";
+  } else {
+    icon.textContent = "lock_open";
+    label.textContent = "Unlock";
+  }
+}
+
 
 
 
@@ -1441,6 +1584,69 @@ function animateAndSwitch(targetId, linkYaw) {
   // For now just console log
   // Later you can filter grid based on type
 });
+
+function toggleVRTourFromToolbar() {
+  vrEnabled = !vrEnabled;
+
+  if (!viewer || !currentSceneId) return;
+
+  const existing = document.querySelectorAll(".pnlm-hotspot-base");
+  existing.forEach(h => h.remove());
+
+  if (vrEnabled) {
+    const scene = scenesData[currentSceneId];
+    const hotspots = buildHotspots(scene);
+    hotspots.forEach(h => viewer.addHotSpot(h));
+  }
+}
+
+function downloadCurrentPano() {
+  if (!currentSceneId) return;
+  const url = scenesData[currentSceneId].img;
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = currentSceneId + ".jpg";
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+}
+
+function capturePano() {
+  showToast("Capture feature not completed yet.");
+}
+
+function exitSplitToPano() {
+  closeCompare();
+}
+
+function downloadSplitView() {
+  showToast("Split download not implemented yet.");
+}
+
+function captureSplitView() {
+  showToast("Split capture not implemented yet.");
+}
+
+
+function showToast(message) {
+
+  const toast = document.createElement("div");
+  toast.className = "custom-toast";
+  toast.innerText = message;
+
+  document.body.appendChild(toast);
+
+  // Trigger animation
+  setTimeout(() => toast.classList.add("show"), 10);
+
+  // Remove after 3 seconds
+  setTimeout(() => {
+    toast.classList.remove("show");
+    setTimeout(() => toast.remove(), 300);
+  }, 3000);
+}
+
+
 
   </script>
 
