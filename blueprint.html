@@ -1,0 +1,1945 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Timeline Panoramic Monitoring</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+  <!-- Pannellum -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum/build/pannellum.css" />
+  <script src="https://cdn.jsdelivr.net/npm/pannellum/build/pannellum.js"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Liter&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+  <link rel="preconnect" href="https://teaewxyuimeiyzbrqpwj.supabase.co">
+<!-- Leaflet -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+  <style>
+    /* ========== BASE ========== */
+    body {
+      margin: 0;
+      font-family: "Liter", system-ui;
+      background: #0f172a;
+      color: #222;
+    }
+
+    /* ========== HEADER ========== */
+
+.header {
+  background: #0f172a;
+  color: #fff;
+  padding: 12px 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #1e293b;
+}
+
+.header-left h2 {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: .3px;
+  min-width: 250px;
+  border-right: 5px solid white;
+}
+
+/* CENTER CONTROLS */
+.header-center {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.try{
+        display: flex;
+        justify-content: space-between;
+        margin: 10px;
+        gap: 20px;
+        width: 100%;
+    }
+
+/* DROPDOWN */
+.media-filter {
+  background: #1e293b;
+  color: white;
+  border: 1px solid #334155;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 13px;
+  cursor: pointer;
+      width: 150px;
+    height: 100%;
+    font-family: system-ui;
+    font-size: 14px;
+    font-weight: 600;   
+}
+
+.media-filter:focus {
+  outline: none;
+  border-color: #4c5975;
+      width: 150px;
+    height: 100%;
+    font-family: system-ui;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+/* HEADER BUTTON */
+.header-btn {
+  background: #2563eb;
+  color: #fff;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.header-btn:hover {
+  background: #1d4ed8;
+}
+
+/* ACCOUNT ICON */
+.header-right {
+  display: flex;
+  align-items: center;
+}
+
+.account-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #1e293b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.account-icon:hover {
+  background: #334155;
+}
+
+
+    /* ========== DATE CHIPS ========== */
+    .date-bar {
+      display: flex;
+      gap: 5px;
+      padding: 8px 20px;
+      background: #4c5975;
+      border-bottom: 1px solid #e5e7eb;
+      overflow-x: auto;
+      white-space: nowrap;
+      /* position: fixed;
+      bottom: 4px; */
+    }
+
+    .date-bar::-webkit-scrollbar {
+      height: 6px;
+    }
+
+    .date-bar::-webkit-scrollbar-thumb {
+      background: #c7d2fe;
+      border-radius: 4px;
+    }
+
+
+    .date-chip {
+      padding: 6px 14px;
+      border-radius: 18px;
+      background: #e5e7eb;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    .date-chip.active {
+      background: #0f172a;
+      color: #fff;
+    }
+
+    /* ========== GRID ========== */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 18px;
+      padding: 20px;
+      max-width: 1400px;
+      margin: auto;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, .08);
+      overflow: hidden;
+      transition: transform .2s;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+    }
+
+    .thumb {
+      position: relative;
+      height: 160px;
+      background: #000;
+    }
+
+    .thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .duration {
+      position: absolute;
+      bottom: 8px;
+      right: 8px;
+      background: rgba(0, 0, 0, .7);
+      color: #fff;
+      font-size: 12px;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    .card-body {
+      padding: 12px 14px;
+      background: #4c5975;
+      color: white;
+    }
+
+    .title {
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    /* ========== ACTIONS ========== */
+    .actions {
+      display: flex;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .actions button {
+      flex: 1;
+      border: none;
+      background: #4c5975;
+      color: #fff;
+      font-size: 12px;
+      padding: 6px 10px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .actions button.secondary {
+      background: #64748b;
+    }
+
+
+    /* ========== MAIN PANORAMA VIEW ========== */
+    #viewer360 {
+      width: 100%;
+      height: calc(100vh - 140px);
+      /* 140px ≈ header + date bar */
+      background: #000;
+      display: none;
+    }
+
+    #pano {
+      width: 100%;
+      height: 100%;
+      opacity: 1;
+      transform: scale(1);
+      transition: opacity 0.45s ease-in-out,
+        transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+
+
+
+    #close360 {
+      position: absolute;
+      top: 108px;
+      right: 16px;
+      color: white;
+      font-size: 28px;
+      cursor: pointer;
+      z-index: 6000;
+    }
+
+    /* ========== MAP POPUP ========== */
+    #mapPopup {
+      position: fixed;
+      bottom: 27px;
+      /* 👈 anchor from bottom */
+      left: 5px;
+      width: 300px;
+      height: 200px;
+      /* background: white; */
+      border-radius: 5px;
+      z-index: 5000;
+      display: none;
+      resize: both;
+      overflow: hidden;
+
+      transition: height 0.35s ease;
+    }
+
+    #mapHeader {
+      background: #0f172a;
+      color: white;
+      padding: 8px;
+      cursor: move;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    #map {
+      width: 100%;
+      height: calc(100% - 40px);
+    }
+
+    /* Minimized Map State */
+    #mapPopup.minimized {
+      height: 40px !important;
+      resize: none;
+      overflow: hidden;
+    }
+
+    #mapPopup.minimized #map {
+      display: none;
+    }
+
+
+
+    #mapPopup.minimized {
+      height: 40px !important;
+      resize: none;
+      overflow: hidden;
+    }
+
+
+
+    /* ===============================
+   PANORAMA HOTSPOT VISIBILITY
+================================ */
+
+    /* ===== 3DVista Style Arrow ===== */
+    /* ===== Flat White Circle ===== */
+
+    .pnlm-hotspot {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      /* background: #ffffff; */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Bent arrow */
+    .pnlm-hotspot .arrow-icon {
+      width: 18px;
+      height: 18px;
+      position: relative;
+    }
+
+    /* horizontal shaft */
+    .pnlm-hotspot .arrow-icon::before {
+      content: "";
+      position: absolute;
+      width: 14px;
+      height: 3px;
+      background: #111;
+      top: 8px;
+      left: 0;
+    }
+
+    /* arrow head */
+    .pnlm-hotspot .arrow-icon::after {
+      content: "";
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      border-top: 3px solid #111;
+      border-right: 3px solid #111;
+      top: 3px;
+      right: 0;
+      transform: rotate(45deg);
+    }
+
+
+
+
+
+    /* Label (tooltip) */
+    .pnlm-tooltip span {
+      background: #2563eb !important;
+      color: white !important;
+      font-size: 13px;
+      padding: 6px 10px;
+      border-radius: 6px;
+      font-weight: 600;
+    }
+
+    .pnlm-container span {
+      /* background: #ffffff !important; */
+      color: white !important;
+      font-size: 13px;
+      padding: 6px 10px;
+      border-radius: 6px;
+      font-weight: 600;
+      display: flex;
+      justify-content: center;
+    }
+
+    /* ===== VR TOGGLE ===== */
+    .toggle {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+    }
+
+    .toggle input {
+      display: none;
+    }
+
+    .slider {
+      width: 42px;
+      height: 22px;
+      background: #94a3b8;
+      border-radius: 999px;
+      position: relative;
+      transition: background 0.25s;
+    }
+
+    .slider::after {
+      content: "";
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      background: #fff;
+      border-radius: 50%;
+      top: 2px;
+      left: 2px;
+      transition: transform 0.25s;
+    }
+
+    .toggle input:checked+.slider {
+      background: #2563eb;
+    }
+
+    .toggle input:checked+.slider::after {
+      transform: translateX(20px);
+    }
+
+    .toggle-text {
+      color: white;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .split-map {
+      position: absolute;
+      bottom: 12px;
+      right: 12px;
+      width: 260px;
+      height: 180px;
+      background: white;
+      border-radius: 10px;
+      border: 2px solid #2563eb;
+      z-index: 20;
+    }
+
+    /* ===== SPLIT VIEW ===== */
+    .compare-view {
+      position: fixed;
+      inset: 0;
+      background: #000;
+      z-index: 9000;
+      display: none;
+      margin-top: 64px;
+    }
+
+    .compare-pane {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .compare-pano {
+      width: 100%;
+      height: 100%;
+    }
+
+    .compare-header {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      z-index: 30;
+
+    }
+
+    .compare-header select {
+      color: #fff;
+      border: 1px solid #555;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 6px 10px;
+      border-radius: 6px;
+    }
+
+    #closeCompare {
+      position: fixed;
+      top: 12px;
+      right: 16px;
+      font-size: 28px;
+      color: white;
+      cursor: pointer;
+      z-index: 9999;
+    }
+
+    .compare-header button {
+      background: #0f172a;
+      color: #fff;
+      border: 1px solid #555;
+      margin-left: 6px;
+      cursor: pointer;
+      border-radius: 4px;
+      font-size: 13px;
+      padding: 6px 10px;
+      border-radius: 6px;
+    }
+
+    
+  
+  /* ===============================
+   PANO VERTICAL TOOLBAR
+================================ */
+
+.pano-toolbar {
+  position: absolute;
+  top: 135px;
+  right: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  background: #0f172aa8;
+  backdrop-filter: blur(8px);
+  padding: 14px 10px;
+  border-radius: 14px;
+  z-index: 7000;
+}
+
+.tool-btn {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.tool-btn:hover {
+  background: rgba(255,255,255,0.15);
+  transform: scale(1.08);
+}
+
+.tool-btn .material-icons {
+  font-size: 22px;
+  color: #e2e8f0;
+}
+
+.tool-label {
+  position: absolute;
+  right: 55px;
+  background: #0f172a;
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateX(10px);
+  transition: all 0.25s ease;
+  pointer-events: none;
+}
+
+.tool-btn:hover .tool-label {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ===============================
+   TOAST MESSAGE
+================================ */
+
+.custom-toast {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: rgba(15, 23, 42, 0.95);
+  color: #fff;
+  padding: 12px 18px;
+  border-radius: 8px;
+  font-size: 14px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+  z-index: 10000;
+}
+
+.custom-toast.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===============================
+   SPLIT TOOLBAR POSITION
+================================ */
+
+.split-toolbar {
+  top: 45px;     /* below date selectors */
+  right: 15px;
+}
+
+#blueprintContainer {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    margin: auto;
+}
+
+#blueprintImage {
+    width: 100%;
+    display: block;
+}
+
+.blueprint-marker {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: #4c5975;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+.blueprint-marker:hover {
+    transform: translate(-50%, -50%) scale(1.2);
+}
+
+.blueprint-marker.active {
+    background: #0f172a;
+    box-shadow: 0 0 15px #0f172a;
+    transform: translate(-50%, -50%) scale(1.4);
+}
+
+/* ===============================
+   BLUEPRINT POPUP
+================================ */
+
+#blueprintPopup {
+  position: fixed;
+  bottom: 27px;
+  left: 5px;
+  width: 320px;
+  height: 220px;
+  background: #fff;
+  border-radius: 8px;
+  z-index: 6000;
+  display: none;
+  resize: both;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+  transition: height 0.3s ease;
+}
+
+#blueprintHeader {
+  background: #0f172a;
+  color: white;
+  padding: 8px;
+  cursor: move;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#blueprintContainer {
+  position: relative;
+  width: 100%;
+  height: calc(100% - 40px);
+  overflow: hidden;
+}
+
+#blueprintImage {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Minimized state */
+#blueprintPopup.minimized {
+  height: 40px !important;
+  resize: none;
+}
+
+#blueprintPopup.minimized #blueprintContainer {
+  display: none;
+}
+
+#blueprintImage {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+  transform-origin: center center;
+  cursor: grab;
+}
+
+#blueprintImage:active {
+  cursor: grabbing;
+}
+#blueprintViewport {
+  position: relative;
+  width: 100%;
+  height: calc(100% - 40px);
+  overflow: hidden;
+}
+
+#blueprintContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform-origin: 50% 50%;
+  transition: transform 0.2s ease;
+}
+#blueprintImage {
+   user-select: none;
+  -webkit-user-drag: none;
+}
+#blueprintViewport {
+  touch-action: none;
+}
+/* Active VR button */
+.tool-btn.active {
+    background: #0f172a !important;
+    box-shadow: 0 0 12px #ffffff73;
+}
+
+.tool-btn.active .material-icons {
+  color: #fff;
+}
+
+</style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <div class="header">
+
+  <!-- LEFT: Title -->
+  <div class="header-left">
+    <h2>Indospace Anantapur – Media</h2>
+  </div>
+
+
+  <div class="try">
+  <!-- CENTER: Controls -->
+  <div class="header-center">
+
+    <!-- Media Filter Dropdown -->
+    <select class="media-filter" id="mediaFilter">
+      <option value="all">All Media</option>
+      <option value="panorama">Panoramas</option>
+      <option value="drone">Drone</option>
+      <option value="video">Videos</option>
+    </select>
+  </div>
+ 
+
+  <!-- RIGHT: Account -->
+  <div class="header-right">
+    <div class="account-icon">
+      👤
+    </div>
+  </div>
+
+   </div>
+
+</div>
+
+
+
+  </div>
+
+  <!-- DATE FILTER -->
+  <div class="date-bar" id="dateBar"></div>
+
+
+  <!-- GRID -->
+  <div class="grid" id="mediaGrid"></div>
+
+  <!-- PANORAMA POPUP -->
+  <div id="viewer360">
+    <div id="pano"></div>
+
+    <!-- PANO TOOLBAR -->
+<div class="pano-toolbar">
+
+  <div class="tool-btn" onclick="closePano()">
+    <span class="material-icons">close</span>
+    <div class="tool-label">Close</div>
+  </div>
+
+  <div class="tool-btn" id="vrToolBtn" onclick="toggleVRTourFromToolbar()">
+  <span class="material-icons">view_in_ar</span>
+  <div class="tool-label" id="vrToolLabel">Enable VR Tour</div>
+</div>
+
+
+  <div class="tool-btn" onclick="setViewMode('split')">
+    <span class="material-icons">compare</span>
+    <div class="tool-label">Split View</div>
+  </div>
+
+  <div class="tool-btn" onclick="downloadCurrentPano()">
+    <span class="material-icons">download</span>
+    <div class="tool-label">Download</div>
+  </div>
+
+  <div class="tool-btn" onclick="capturePano()">
+    <span class="material-icons">photo_camera</span>
+    <div class="tool-label">Capture</div>
+  </div>
+
+</div>
+
+  </div>
+
+<!-- BLUEPRINT POPUP -->
+ <div id="blueprintPopup">
+
+  <div id="blueprintHeader">
+    <span>Blueprint</span>
+    <div style="display:flex;gap:6px;align-items:center;">
+      <span class="material-icons" onclick="zoomBlueprint(1)">zoom_in</span>
+      <span class="material-icons" onclick="zoomBlueprint(-1)">zoom_out</span>
+      <span class="material-icons" onclick="rotateBlueprint(-15)">rotate_left</span>
+      <span class="material-icons" onclick="rotateBlueprint(15)">rotate_right</span>
+      <span class="material-icons" onclick="resetBlueprint()">restart_alt</span>
+      <span class="material-icons" onclick="toggleBlueprintMinimize()">remove</span>
+    </div>
+  </div> <!-- 🔥 THIS WAS MISSING -->
+
+  <div id="blueprintViewport">
+    <div id="blueprintContainer">
+      <img id="blueprintImage">
+    </div>
+  </div>
+
+</div>
+
+
+
+
+
+
+
+  <!-- SPLIT COMPARE VIEW -->
+  <div class="compare-view" id="compareView" style="display:none;">
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;height:100%;">
+
+      <!-- LEFT -->
+      <div class="compare-pane">
+        <div class="compare-header">
+          <select id="leftDateSelect" onchange="updateCompare('left')"></select>
+        </div>
+
+        <div id="leftPano" class="compare-pano"></div>
+        <div class="split-map" id="leftMap"></div>
+      </div>
+
+      <!-- RIGHT -->
+      <div class="compare-pane">
+        <div class="compare-header">
+          <select id="rightDateSelect" onchange="updateCompare('right')"></select>
+        </div>
+        <!-- SPLIT TOOLBAR -->
+<div class="split-toolbar pano-toolbar">
+
+  <div class="tool-btn" onclick="closeCompare()">
+    <span class="material-icons">close</span>
+    <div class="tool-label">Close</div>
+  </div>
+
+    <div class="tool-btn" onclick="toggleCompareLock()" id="lockBtn">
+    <span class="material-icons" id="lockIcon">lock_open</span>
+    <div class="tool-label" id="lockLabel">Unlock</div>
+  </div>
+
+  <div class="tool-btn" onclick="exitSplitToPano()">
+    <span class="material-icons">panorama</span>
+    <div class="tool-label">Pano Mode</div>
+  </div>
+
+  <div class="tool-btn" onclick="downloadSplitView()">
+    <span class="material-icons">download</span>
+    <div class="tool-label">Download</div>
+  </div>
+
+  <div class="tool-btn" onclick="captureSplitView()">
+    <span class="material-icons">photo_camera</span>
+    <div class="tool-label">Capture</div>
+  </div>
+
+</div>
+
+
+        <div id="rightPano" class="compare-pano"></div>
+        <div class="split-map" id="rightMap"></div>
+      </div>
+
+    </div>
+  </div>
+
+
+
+
+
+
+  <script>
+    let allData = {};
+    let dates = [];
+    let currentDateIndex = 0;
+    let scenesData = {};
+    let currentSceneId = null;
+
+    let viewer = null;
+    let map = null;
+    let directionLine = null;
+
+    let vrEnabled = false;
+
+    let leftViewer = null;
+    let rightViewer = null;
+
+    let leftCompareDate = null;
+    let rightCompareDate = null;
+
+    let leftMap = null;
+    let rightMap = null;
+    let leftDirLine = null;
+    let rightDirLine = null;
+
+    let leftSceneId = null;
+    let rightSceneId = null;
+
+    let compareLocked = false; // default: unlocked
+    let addedScenes = {};
+
+/* ===============================
+   BLUEPRINT ENGINE
+================================ */
+
+let blueprintScale = 1;
+let blueprintRotation = 0;
+let blueprintOffsetX = 0;
+let blueprintOffsetY = 0;
+
+const blueprintContainer = document.getElementById("blueprintContainer");
+const blueprintImage = document.getElementById("blueprintImage");
+blueprintImage.setAttribute("draggable", "false");
+
+function resetBlueprint() {
+
+  blueprintScale = 1;
+  blueprintRotation = 0;
+
+  blueprintOffsetX = 0;
+  blueprintOffsetY = 0;
+
+  updateBlueprintTransform();
+}
+
+
+
+
+function updateBlueprintTransform() {
+  blueprintContainer.style.transform =
+    `translate(${blueprintOffsetX}px, ${blueprintOffsetY}px)
+     scale(${blueprintScale})
+     rotate(${blueprintRotation}deg)`;
+}
+
+
+/* ===== ZOOM ===== */
+function zoomBlueprint(direction) {
+  const zoomStep = 0.25; // 🔥 stronger zoom
+  blueprintScale += direction * zoomStep;
+  blueprintScale = Math.max(0.5, Math.min(4, blueprintScale));
+  updateBlueprintTransform();
+}
+
+
+/* ===== ROTATE ===== */
+function rotateBlueprint(deg) {
+  blueprintRotation += deg;
+  updateBlueprintTransform();
+}
+
+/* ===== DRAG WITH POINTER EVENTS ===== */
+
+let isDraggingBlueprint = false;
+let startX = 0;
+let startY = 0;
+
+blueprintContainer.addEventListener("pointerdown", (e) => {
+
+  // ❌ If user clicked a marker → do NOT drag
+  if (e.target.classList.contains("blueprint-marker")) {
+    return;
+  }
+
+  if (e.pointerType === "touch" && e.isPrimary === false) return;
+
+  isDraggingBlueprint = true;
+  blueprintContainer.setPointerCapture(e.pointerId);
+
+  startX = e.clientX - blueprintOffsetX;
+  startY = e.clientY - blueprintOffsetY;
+});
+
+
+blueprintContainer.addEventListener("pointermove", (e) => {
+  if (!isDraggingBlueprint) return;
+
+  blueprintOffsetX = e.clientX - startX;
+  blueprintOffsetY = e.clientY - startY;
+  updateBlueprintTransform();
+});
+
+blueprintContainer.addEventListener("pointerup", (e) => {
+  isDraggingBlueprint = false;
+  blueprintContainer.releasePointerCapture(e.pointerId);
+});
+
+blueprintContainer.addEventListener("pointercancel", () => {
+  isDraggingBlueprint = false;
+});
+
+
+/* ===== MOUSE WHEEL ZOOM ===== */
+blueprintContainer.addEventListener("wheel", (e) => {
+  e.preventDefault();
+
+  const zoomIntensity = 0.0025; // 🔥 smooth & responsive
+  blueprintScale -= e.deltaY * zoomIntensity;
+
+  blueprintScale = Math.max(0.5, Math.min(4, blueprintScale));
+  updateBlueprintTransform();
+}, { passive: false });
+
+
+/* ===== PINCH ZOOM (HIGH SENSITIVITY) ===== */
+
+let initialDistance = null;
+let initialScale = blueprintScale;
+
+blueprintContainer.addEventListener("touchstart", (e) => {
+  if (e.touches.length === 2) {
+    initialDistance = getTouchDistance(e.touches);
+    initialScale = blueprintScale;
+  }
+}, { passive: false });
+
+blueprintContainer.addEventListener("touchmove", (e) => {
+  if (e.touches.length === 2) {
+    e.preventDefault(); // stop browser zoom
+
+    const newDistance = getTouchDistance(e.touches);
+    const scaleFactor = newDistance / initialDistance;
+
+    // 🔥 Increase sensitivity multiplier (1.8x stronger)
+    blueprintScale = initialScale * scaleFactor * 1.8;
+
+    blueprintScale = Math.max(0.5, Math.min(4, blueprintScale));
+    updateBlueprintTransform();
+  }
+}, { passive: false });
+
+function getTouchDistance(touches) {
+  const dx = touches[0].clientX - touches[1].clientX;
+  const dy = touches[0].clientY - touches[1].clientY;
+  return Math.sqrt(dx * dx + dy * dy);
+}
+
+blueprintImage.addEventListener("dragstart", (e) => {
+  e.preventDefault();
+});
+
+
+    /* ===============================
+       HELPERS (MUST BE FIRST)
+    ================================ */
+    function getYaw(a, b) {
+      if (!b) return 0;
+      return Math.atan2(b.lon - a.lon, b.lat - a.lat) * 180 / Math.PI;
+    }
+
+    function getDirectionPoint(lat, lon, yaw) {
+      const d = 0.00008;
+      const r = yaw * Math.PI / 180;
+      return [lat + d * Math.cos(r), lon + d * Math.sin(r)];
+    }
+
+    function resetMapContainer(id) {
+      const el = document.getElementById(id);
+      el.innerHTML = "";
+      el._leaflet_id = null;
+    }
+
+    function getValidSceneId(date, preferredId) {
+      const scenes = allData[date].panoramic;
+
+      if (scenes[preferredId]) return preferredId;
+
+      // fallback to first available pano for that date
+      return Object.keys(scenes)[0];
+    }
+
+    let syncing = false;
+    let activeSource = null; // "left" | "right"
+
+    function startSync(source) {
+      activeSource = source;
+
+      // 🔑 instant alignment when lock is ON
+      if (compareLocked && leftViewer && rightViewer) {
+        if (source === "left") {
+          rightViewer.setYaw(leftViewer.getYaw());
+          rightViewer.setPitch(leftViewer.getPitch());
+        } else {
+          leftViewer.setYaw(rightViewer.getYaw());
+          leftViewer.setPitch(rightViewer.getPitch());
+        }
+      }
+    }
+
+
+
+
+    function fadeOutPano() {
+      const el = document.getElementById("pano");
+      el.style.opacity = "0";
+      el.style.transform = "scale(1.1)";
+    }
+
+    function fadeInPano() {
+      const el = document.getElementById("pano");
+      el.style.opacity = "1";
+      el.style.transform = "scale(1)";
+    }
+
+    function normalizeYaw(yaw) {
+      return ((yaw + 540) % 360) - 180;
+    }
+
+    function syncIfLocked() {
+      if (!compareLocked || syncing || !activeSource) return;
+
+      syncing = true;
+
+      requestAnimationFrame(() => {
+        if (activeSource === "left") {
+          rightViewer.setYaw(leftViewer.getYaw());
+          rightViewer.setPitch(leftViewer.getPitch());
+          rightViewer.setHfov(leftViewer.getHfov());
+        }
+        else if (activeSource === "right") {
+          leftViewer.setYaw(rightViewer.getYaw());
+          leftViewer.setPitch(rightViewer.getPitch());
+          leftViewer.setHfov(rightViewer.getHfov());
+        }
+
+        syncing = false;
+      });
+    }
+
+
+
+    function hotspotLabel(hotSpotDiv, args) {
+      hotSpotDiv.classList.add("pnlm-hotspot");
+
+      const label = document.createElement("span");
+      label.innerText = args;
+      hotSpotDiv.appendChild(label);
+    }
+
+    function toggleVRTour(el) {
+      vrEnabled = el.checked;
+
+      if (!viewer || !currentSceneId) return;
+
+      // 🔥 Remove existing hotspots manually
+      const existing = document.querySelectorAll(".pnlm-hotspot-base");
+      existing.forEach(h => h.remove());
+
+      if (vrEnabled) {
+        const scene = scenesData[currentSceneId];
+        const hotspots = buildHotspots(scene);
+
+        hotspots.forEach(h => viewer.addHotSpot(h));
+      }
+    }
+
+
+
+
+    function setViewMode(mode) {
+      if (mode !== "split") return;
+
+      if (!currentSceneId) {
+        alert("Select a panorama first");
+        return;
+      }
+
+      if (currentDateIndex === 0) {
+        alert("No previous date available");
+        return;
+      }
+
+      const rightDate = dates[currentDateIndex];
+      const leftDate = dates[currentDateIndex - 1];
+
+      openCompare(currentSceneId, leftDate, rightDate);
+    }
+
+    function openCompare(panoId, leftDate, rightDate) {
+      leftCompareDate = leftDate;
+      rightCompareDate = rightDate;
+
+      // default selection
+      leftSceneId = panoId;
+      rightSceneId = panoId; // initial, user can change later
+
+      document.getElementById("compareView").style.display = "block";
+
+      populateCompareDates();
+      loadComparePanorama();
+    }
+
+
+
+
+    function populateCompareDates() {
+      const leftSel = document.getElementById("leftDateSelect");
+      const rightSel = document.getElementById("rightDateSelect");
+
+      leftSel.innerHTML = "";
+      rightSel.innerHTML = "";
+
+      dates.forEach(d => {
+        if (Object.keys(allData[d].panoramic).length) {
+          leftSel.innerHTML += `<option value="${d}">${d}</option>`;
+          rightSel.innerHTML += `<option value="${d}">${d}</option>`;
+        }
+      });
+
+      leftSel.value = leftCompareDate;
+      rightSel.value = rightCompareDate;
+    }
+
+
+
+    function loadComparePanorama() {
+      if (leftViewer) leftViewer.destroy();
+      if (rightViewer) rightViewer.destroy();
+      if (leftMap) leftMap.remove();
+      if (rightMap) rightMap.remove();
+
+      leftSceneId = getValidSceneId(leftCompareDate, leftSceneId);
+      rightSceneId = getValidSceneId(rightCompareDate, rightSceneId);
+
+      const leftScene =
+        allData[leftCompareDate].panoramic[leftSceneId];
+
+      const rightScene =
+        allData[rightCompareDate].panoramic[rightSceneId];
+
+
+
+      leftViewer = pannellum.viewer("leftPano", {
+        type: "equirectangular",
+        panorama: leftScene.img,
+        autoLoad: true,
+        compass: true
+      });
+
+      rightViewer = pannellum.viewer("rightPano", {
+        type: "equirectangular",
+        panorama: rightScene.img,
+        autoLoad: true,
+        compass: true
+      });
+
+      const leftObj = loadSplitMap(
+        "leftMap",
+        leftCompareDate,
+        leftSceneId,
+        "left"
+      );
+
+      const rightObj = loadSplitMap(
+        "rightMap",
+        rightCompareDate,
+        rightSceneId,
+        "right"
+      );
+
+      leftMap = leftObj.map;
+      rightMap = rightObj.map;
+      leftDirLine = leftObj.dirLine;
+      rightDirLine = rightObj.dirLine;
+
+      // detect which pano user is moving
+      leftViewer.on("mousedown", () => startSync("left"));
+      rightViewer.on("mousedown", () => startSync("right"));
+
+      leftViewer.on("touchstart", () => startSync("left"));
+      rightViewer.on("touchstart", () => startSync("right"));
+
+      // continuous sync loop
+      leftViewer.on("viewchange", syncIfLocked);
+      rightViewer.on("viewchange", syncIfLocked);
+
+      // detect zoom source (mouse wheel)
+      leftViewer.getContainer().addEventListener("wheel", () => startSync("left"));
+      rightViewer.getContainer().addEventListener("wheel", () => startSync("right"));
+
+      // detect pinch zoom (mobile)
+      leftViewer.getContainer().addEventListener("touchmove", () => startSync("left"), { passive: true });
+      rightViewer.getContainer().addEventListener("touchmove", () => startSync("right"), { passive: true });
+
+    }
+
+
+
+    function loadSplitMap(mapId, date, activeSceneId, side) {
+      resetMapContainer(mapId);
+
+      const scenes = allData[date].panoramic;
+      const active = scenes[activeSceneId];
+
+      const map = L.map(mapId, {
+        zoomControl: false,
+        attributionControl: false
+      }).setView([active.lat, active.lon], 19);
+
+      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        maxZoom: 22
+      }).addTo(map);
+
+      let dirLine = null;
+
+      Object.entries(scenes).forEach(([id, scene]) => {
+        const isActive = id === activeSceneId;
+
+        const marker = L.circleMarker([scene.lat, scene.lon], {
+          radius: isActive ? 9 : 6,
+          color: isActive ? (side === "left" ? "red" : "blue") : "#666",
+          fillColor: isActive ? (side === "left" ? "red" : "blue") : "#999",
+          fillOpacity: 1
+        }).addTo(map);
+
+        marker.on("click", () => {
+          if (compareLocked) return;
+
+          if (side === "left") leftSceneId = id;
+          else rightSceneId = id;
+
+          loadComparePanorama();
+        });
+
+
+        if (isActive) {
+          dirLine = L.polyline(
+            [
+              [scene.lat, scene.lon],
+              getDirectionPoint(scene.lat, scene.lon, scene.yaw || 0)
+
+            ],
+            {
+              color: side === "left" ? "red" : "blue",
+              weight: 3
+            }
+          ).addTo(map);
+        }
+      });
+
+      setTimeout(() => map.invalidateSize(), 300);
+
+      return { map, dirLine };
+    }
+
+    function syncViewers(source, target, sourceScene, targetScene) {
+      const yaw = source.getYaw();
+      const pitch = source.getPitch();
+
+      target.setYaw(yaw);
+      target.setPitch(pitch);
+
+      // update map arrows
+      if (source === leftViewer) {
+        leftDirLine?.setLatLngs([
+          [sourceScene.lat, sourceScene.lon],
+          getDirectionPoint(sourceScene.lat, sourceScene.lon, yaw)
+        ]);
+
+        rightDirLine?.setLatLngs([
+          [targetScene.lat, targetScene.lon],
+          getDirectionPoint(targetScene.lat, targetScene.lon, yaw)
+        ]);
+      } else {
+        rightDirLine?.setLatLngs([
+          [sourceScene.lat, sourceScene.lon],
+          getDirectionPoint(sourceScene.lat, sourceScene.lon, yaw)
+        ]);
+
+        leftDirLine?.setLatLngs([
+          [targetScene.lat, targetScene.lon],
+          getDirectionPoint(targetScene.lat, targetScene.lon, yaw)
+        ]);
+      }
+    }
+
+
+    function updateCompare(side) {
+      if (side === "left") {
+        leftCompareDate = document.getElementById("leftDateSelect").value;
+      } else {
+        rightCompareDate = document.getElementById("rightDateSelect").value;
+      }
+      if (side === "left") leftSceneId = null;
+      if (side === "right") rightSceneId = null;
+
+      loadComparePanorama();
+    }
+
+    function closeCompare() {
+      document.getElementById("compareView").style.display = "none";
+
+      if (leftViewer) leftViewer.destroy();
+      if (rightViewer) rightViewer.destroy();
+      if (leftMap) leftMap.remove();
+      if (rightMap) rightMap.remove();
+
+      leftViewer = rightViewer = null;
+      leftMap = rightMap = null;
+    }
+
+
+
+
+
+
+    /* LOAD DATA */
+    fetch("data2.json")
+      .then(res => res.json())
+      .then(data => {
+        allData = data;
+        dates = Object.keys(allData).sort();
+        currentDateIndex = dates.length - 1;
+        renderDateChips();
+        loadDate();
+      });
+
+    /* DATE CHIPS */
+    function renderDateChips() {
+      const bar = document.getElementById("dateBar");
+      bar.innerHTML = "";
+
+      let activeChip = null;
+
+      dates.forEach((d, i) => {
+        const chip = document.createElement("div");
+        chip.className = "date-chip" + (i === currentDateIndex ? " active" : "");
+        chip.textContent = d;
+
+        chip.onclick = () => {
+          currentDateIndex = i;
+          renderDateChips();
+          loadDate();
+        };
+
+        if (i === currentDateIndex) {
+          activeChip = chip; // 👈 remember active
+        }
+
+        bar.appendChild(chip);
+      });
+
+      // ✅ AUTO-SCROLL ACTIVE DATE INTO VIEW
+      if (activeChip) {
+        activeChip.scrollIntoView({
+          behavior: "smooth",
+          inline: "center",
+          block: "nearest"
+        });
+      }
+    }
+
+    function toggleCompareLock() {
+  compareLocked = !compareLocked;
+
+  const icon = document.getElementById("lockIcon");
+  const label = document.getElementById("lockLabel");
+
+  if (compareLocked) {
+    icon.textContent = "lock";
+    label.textContent = "Lock";
+  } else {
+    icon.textContent = "lock_open";
+    label.textContent = "Unlock";
+  }
+}
+
+
+
+
+
+
+
+    /* LOAD DATE */
+function loadDate() {
+
+  const currentDate = dates[currentDateIndex];
+  const dateData = allData[currentDate];
+
+  scenesData = dateData.panoramic;
+  currentSceneId = null;
+
+  closePano();
+
+
+  renderGrid();
+
+  // 🔥 Load blueprint image for this date
+  if (dateData.map && dateData.map.image) {
+    document.getElementById("blueprintImage").src = dateData.map.image;
+    buildBlueprintSpots(currentDate);
+  }
+  
+}
+
+    /* GRID */
+    function renderGrid() {
+      const grid = document.getElementById("mediaGrid");
+      grid.innerHTML = "";
+
+      Object.entries(scenesData).forEach(([id, s]) => {
+        const card = document.createElement("div");
+        card.className = "card";
+
+        card.innerHTML = `
+      <div class="thumb">
+        <img 
+  src="${s.thumb}"
+  loading="lazy"
+  decoding="async"
+  onclick="openScene('${id}')">
+
+      </div>
+      <div class="card-body">
+        <div class="title">${id}</div>
+      </div>
+    `;
+
+        grid.appendChild(card);
+      });
+    }
+
+    /* OPEN SCENE */
+    function openScene(id, transition = null) {
+
+  document.getElementById("blueprintPopup").style.display = "block";
+
+  currentSceneId = id;
+
+  // 🔥 Ensure spots exist first
+  buildBlueprintSpots(dates[currentDateIndex]);
+
+  // 🔥 Then apply active class
+  setActiveBlueprintMarker(id);
+
+  const scene = scenesData[id];
+
+
+      let startYaw = scene.yaw || 0;
+
+      if (transition) {
+        startYaw = normalizeYaw(
+          (scene.yaw || 0) +
+          (transition.fromYaw - transition.linkYaw)
+        );
+      }
+
+
+      openPano(scene, startYaw);
+    }
+
+
+function openPano(scene, startYaw = null) {
+
+  document.getElementById("viewer360").style.display = "block";
+  document.getElementById("mediaGrid").style.display = "none";
+
+  const panoId = currentSceneId;
+  const panoUrl = scene.img;
+
+  if (!panoUrl) {
+    console.error("Missing image for scene:", panoId);
+    return;
+  }
+
+  // 🔥 Create viewer only once
+  if (!viewer) {
+    viewer = pannellum.viewer("pano", {
+      default: {
+        firstScene: panoId,
+        sceneFadeDuration: 500
+      },
+      scenes: {}
+    });
+  }
+
+  // 🔥 Add scene only once
+  if (!addedScenes[panoId]) {
+
+    viewer.addScene(panoId, {
+      type: "equirectangular",
+      panorama: panoUrl,
+      yaw: startYaw !== null ? startYaw : (scene.yaw || 0),
+      pitch: scene.pitch || 0,
+      hfov: 110,
+      minHfov: 60,
+      maxHfov: 110,
+      compass: true
+    });
+
+    addedScenes[panoId] = true;
+  }
+
+viewer.loadScene(
+  panoId,
+  scene.pitch || 0,
+  startYaw !== null ? startYaw : (scene.yaw || 0),
+  110
+);
+
+
+
+  // 🔥 Add hotspots AFTER small delay
+  if (vrEnabled) {
+    setTimeout(() => {
+      const hotspots = buildHotspots(scene);
+      hotspots.forEach(h => viewer.addHotSpot(h));
+    }, 100);
+  }
+
+  preloadLinkedScenes(scene);
+}
+
+
+    function buildHotspots(scene) {
+      const links = scene.links || {};
+
+      // New 3DVista-style links
+      if (!Array.isArray(links)) {
+        return Object.entries(links).map(([target, link]) => ({
+          pitch: link.pitch ?? -5,
+          yaw: link.yaw,
+          type: "custom",
+          cssClass: "pnlm-hotspot",
+          createTooltipFunc: function (div) {
+
+            const img = document.createElement("img");
+            img.src = "https://teaewxyuimeiyzbrqpwj.supabase.co/storage/v1/object/public/pano/pin%20-%20Edited.png";   // path to your image
+            img.style.width = "30px";
+            img.style.height = "30px";
+            img.style.pointerEvents = "none";
+
+            div.appendChild(img);
+
+            // rotate whole hotspot according to yaw
+            div.style.transform = `rotate(${link.yaw}deg)`;
+          },
+
+
+          createTooltipArgs: ` ${target}`,
+          clickHandlerFunc: () =>
+            animateAndSwitch(target, link.yaw)
+
+        }));
+      }
+
+      // Old array-style fallback
+      return links.map(target => ({
+        pitch: -5,
+        yaw: getYaw(scene, scenesData[target]) - (scene.yaw || 0),
+        type: "custom",
+        cssClass: "pnlm-hotspot",
+        createTooltipFunc: hotspotLabel,
+        createTooltipArgs: ` ${target}`,
+        clickHandlerFunc: () =>
+          openScene(target, {
+            fromYaw: viewer.getYaw(),
+            linkYaw: getYaw(scene, scenesData[target])
+          })
+      }));
+    }
+
+    function preloadLinkedScenes(scene) {
+      const links = scene.links || {};
+
+      Object.keys(links).forEach(targetId => {
+        const targetScene = scenesData[targetId];
+        if (!targetScene) return;
+
+        const img = new Image();
+        img.src = targetScene.img;
+      });
+    }
+
+
+function animateAndSwitch(targetId, linkYaw) {
+
+  if (!viewer) return;
+
+  const fromScene = scenesData[currentSceneId];
+  const toScene = scenesData[targetId];
+
+  // 1️⃣ Rotate toward hotspot
+  viewer.setYaw(linkYaw, 400);
+
+  setTimeout(() => {
+
+    // 2️⃣ Convert to global direction
+    const globalDirection = (fromScene.yaw || 0) + linkYaw;
+
+    // 3️⃣ Convert to target relative yaw
+    const newYaw = normalizeYaw(
+      globalDirection - (toScene.yaw || 0)
+    );
+
+    currentSceneId = targetId;
+
+setActiveBlueprintMarker(targetId);   // 🔥 ADD THIS LINE
+
+openPano(toScene, newYaw);
+
+  }, 400);
+}
+
+
+    function closePano() {
+  document.getElementById("viewer360").style.display = "none";
+  document.getElementById("mediaGrid").style.display = "grid";
+  document.getElementById("blueprintPopup").style.display = "none";
+}
+
+
+
+  
+
+function toggleBlueprintMinimize() {
+  const popup = document.getElementById("blueprintPopup");
+  popup.classList.toggle("minimized");
+}
+
+(function makeBlueprintDraggable() {
+  const popup = document.getElementById("blueprintPopup");
+  const header = document.getElementById("blueprintHeader");
+
+  let isDragging = false;
+  let offsetX = 0;
+  let offsetY = 0;
+
+  header.addEventListener("mousedown", (e) => {
+    isDragging = true;
+    offsetX = e.clientX - popup.offsetLeft;
+    offsetY = e.clientY - popup.offsetTop;
+    document.body.style.userSelect = "none";
+  });
+
+  document.addEventListener("mousemove", (e) => {
+    if (!isDragging) return;
+    popup.style.left = e.clientX - offsetX + "px";
+    popup.style.top = e.clientY - offsetY + "px";
+  });
+
+  document.addEventListener("mouseup", () => {
+    isDragging = false;
+    document.body.style.userSelect = "auto";
+  });
+})();
+
+
+
+    /* ===============================
+       DRAGGABLE MAP POPUP
+    ================================ */
+
+
+function toggleVRTourFromToolbar() {
+
+  vrEnabled = !vrEnabled;
+
+  const btn = document.getElementById("vrToolBtn");
+  const label = document.getElementById("vrToolLabel");
+
+  if (!viewer || !currentSceneId) return;
+
+  // Remove existing hotspots
+  const existing = document.querySelectorAll(".pnlm-hotspot-base");
+  existing.forEach(h => h.remove());
+
+  if (vrEnabled) {
+
+    btn.classList.add("active");
+    label.innerText = "Disable VR Tour";
+
+    const scene = scenesData[currentSceneId];
+    const hotspots = buildHotspots(scene);
+    hotspots.forEach(h => viewer.addHotSpot(h));
+
+  } else {
+
+    btn.classList.remove("active");
+    label.innerText = "Enable VR Tour";
+
+  }
+}
+
+
+function downloadCurrentPano() {
+  if (!currentSceneId) return;
+  const url = scenesData[currentSceneId].img;
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = currentSceneId + ".jpg";
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+}
+
+function capturePano() {
+  showToast("Capture feature not completed yet.");
+}
+
+function exitSplitToPano() {
+  closeCompare();
+}
+
+function downloadSplitView() {
+  showToast("Split download not implemented yet.");
+}
+
+function captureSplitView() {
+  showToast("Split capture not implemented yet.");
+}
+
+
+function showToast(message) {
+
+  const toast = document.createElement("div");
+  toast.className = "custom-toast";
+  toast.innerText = message;
+
+  document.body.appendChild(toast);
+
+  // Trigger animation
+  setTimeout(() => toast.classList.add("show"), 10);
+
+  // Remove after 3 seconds
+  setTimeout(() => {
+    toast.classList.remove("show");
+    setTimeout(() => toast.remove(), 300);
+  }, 3000);
+}
+
+
+function buildBlueprintSpots(date) {
+
+  const container = document.getElementById("blueprintContainer");
+
+  container.querySelectorAll(".blueprint-marker")
+    .forEach(el => el.remove());
+
+  const spots = allData[date].map?.spots || {};
+
+  Object.keys(spots).forEach(panoId => {
+
+    const spot = spots[panoId];
+
+    const marker = document.createElement("div");
+    marker.className = "blueprint-marker";
+
+    marker.style.left = spot.x + "%";
+    marker.style.top = spot.y + "%";
+
+    marker.addEventListener("pointerdown", e => e.stopPropagation());
+marker.addEventListener("click", e => {
+  e.stopPropagation();
+  openScene(panoId);
+});
+
+
+    marker.id = "bp-" + panoId;
+
+    container.appendChild(marker);
+  });
+}
+
+
+function setActiveBlueprintMarker(panoId) {
+
+  document.querySelectorAll(".blueprint-marker")
+    .forEach(el => el.classList.remove("active"));
+
+  requestAnimationFrame(() => {
+    const active = document.getElementById("bp-" + panoId);
+    if (active) active.classList.add("active");
+  });
+}
+
+
+
+
+
+
+  </script>
+
+</body>
+
+</html>
