@@ -1,0 +1,518 @@
+{
+  "project": {
+    "name": "PWD Office, Kankavli",
+    "location": "Kankavli",
+    "startDate": "12 Jan 2024",
+    "completionDate": "Dec 2025",
+    "contractor": "MahaLaxmi Infra Pvt Ltd",
+    "engineer": "Rahul Patil",
+    "phone": "+91 9876543210",
+    "email": "info@xyzinfra.com",
+    "googleMaps": "https://maps.google.com/..."
+  },
+  "ledger": {
+    "budget": {
+      "total": 50000000,
+      "spent": 32000000,
+      "works": [
+        {
+          "name": "Steel Procurement",
+          "amount": 8500000,
+          "billDocument": "docs/steel-bill.pdf",
+          "materialPhoto": "images/steel-photo.jpg",
+          "panelLink": "PANEL-01"
+        },
+        {
+          "name": "Electrical Installation",
+          "amount": 6200000,
+          "billDocument": "docs/electrical-bill.pdf",
+          "materialPhoto": "images/electrical.jpg",
+          "panelLink": "PANEL-05"
+        }
+      ]
+    },
+    "documents": {
+      "workOrders": [
+        {
+          "title": "WO - Civil Phase 1",
+          "file": "docs/wo1.pdf"
+        },
+        {
+          "title": "WO - Electrical",
+          "file": "docs/wo2.pdf"
+        }
+      ],
+      "legal": [
+        {
+          "title": "Land Agreement",
+          "file": "docs/agreement.pdf"
+        }
+      ],
+      "bills": [
+        {
+          "title": "Steel Bill - Jan",
+          "file": "docs/steel-bill.pdf"
+        }
+      ],
+      "approvals": [
+        {
+          "title": "Municipal Approval",
+          "file": "docs/approval.pdf"
+        }
+      ]
+    }
+  },
+  "2026-02-13": {
+    "map": {
+      "image": "https://teaewxyuimeiyzbrqpwj.supabase.co/storage/v1/object/public/pano/Map2.jpeg",
+      "spots": {
+        "pano2": {
+          "x": 10.558152780563791,
+          "y": 97.52814633942789
+        },
+        "pano3": {
+          "x": 12.040105226750372,
+          "y": 65.54981269425484
+        },
+        "pano4": {
+          "x": 34.9533699716352,
+          "y": 64.66765176611213
+        },
+        "pano5": {
+          "x": 13.4080613309226,
+          "y": 32.248237656867715
+        },
+        "pano6": {
+          "x": 27.543607740702296,
+          "y": 33.3509388170461
+        },
+        "pano7": {
+          "x": 41.9071468345107,
+          "y": 34.2330997451888
+        },
+        "pano8": {
+          "x": 97.72209090297991,
+          "y": 97.11330965164089
+        },
+        "pano9": {
+          "x": 94.48944420508401,
+          "y": 68.56766578868402
+        }
+      }
+    },
+    "videos": {
+      "vid1": {
+        "name": "Warehouse Progress Walkthrough",
+        "url": "https://youtu.be/yktdBTEr0jc?si=l9frOrD67OOljTYH"
+      },
+      "vid2": {
+        "name": "Roof 360 Inspection",
+        "url": "https://youtu.be/wR9erEdaZwk?si=RZF6CMpcuAoZg496"
+      }
+    },
+    "summary": {
+      "floor": "Floor 1",
+      "progress": 72,
+      "completed": 18,
+      "inProgress": 7,
+      "issues": [
+        {
+          "panel": "pano4",
+          "title": "Water leakage in corner"
+        },
+        {
+          "panel": "pano1",
+          "title": "Electrical wiring exposed"
+        }
+      ],
+      "good": [
+        "Painting completed in panel3",
+        "Waterproofing done in panel8"
+      ],
+      "pending": [
+        "Ceiling finishing",
+        "Lighting installation"
+      ]
+    },
+    "panoramic": {
+      "pano1": {
+        "img": "https://teaewxyuimeiyzbrqpwj.supabase.co/storage/v1/object/public/pano/Pump1/Pano%20(1).webp",
+        "imghd": "https://teaewxyuimeiyzbrqpwj.supabase.co/storage/v1/object/public/pano/Pump1/Pano%20(1).webp",
+        "thumb": "https://teaewxyuimeiyzbrqpwj.supabase.co/storage/v1/object/public/pano/Pump1/thumbnail/Pano%20(1).webp",
+        "lat": 16.260538,
+        "lon": 73.72375,
+        "yaw": 0,
+        "links": {
+          "pano2": {
+            "pitch": -26.623659646805397,
+            "yaw": -0.04442572157883973
+          }
+        }
+      },
+      "pano2": {
+        "img": "https://teaewxyuimeiyzbrqpwj.supabase.co/storage/v1/object/public/pano/Pump1/Pano%20(2).webp",
+        "thumb": "https://teaewxyuimeiyzbrqpwj.supabase.co/storage/v1/object/public/pano/Pump1/thumbnail/Pano%20(2).webp",
+        "lat": 16.260538,
+        "lon": 73.72375,
+        "yaw": 0,
+        "links": {
+          "pano3": {
+            "pitch": -10.430213089678793,
+            "yaw": -4.6484210176891025
+          },
+          "pano8": {
+            "pitch": -8.582182686701072,
+            "yaw": 80.18843429580984
+          },
+          "pano1": {
+            "pitch": 13.713861837841494,
+            "yaw": 170.3160971348936
+          }
+        }
+      },
+      "pano3": {
+        "img": "https://teaewxyuimeiyzbrqpwj.supabase.co/storage/v1/object/public/pano/Pump1/Pano%20(3).webp",
+        "thumb": "https://teaewxyuimeiyzbrqpwj.supabase.co/storage/v1/object/public/pano/Pump1/thumbnail/Pano%20(3).webp",
+        "lat": 16.260538,
+        "lon": 73.72375,
+        "yaw": 0,
+        "links": {
+          "pano4": {
+            "pitch": -36.869091336928946,
+            "yaw": 86.95769251983923
+          },
+          "pano5": {
+            "pitch": -45.26360754556584,
+            "yaw": -9.234949474284761
+          },
+          "pano2": {
+            "pitch": -26.254728353931455,
+            "yaw": 167.16137370021227
+          }
+        }
+      },
+      "pano4": {
+        "img": "https://teaewxyuimeiyzbrqpwj.supabase.co/storage/v1/object/public/pano/Pump1/Pano%20(4).webp",
+        "thumb": "https://teaewxyuimeiyzbrqpwj.supabase.co/storage/v1/object/public/pano/Pump1/thumbnail/Pano%20(4).webp",
+        "lat": 16.260538,
+        "lon": 73.72375,
+        "yaw": 0,
+        "links": {
+          "pano6": {
+            "pitch": -31.58794869341016,
+            "yaw": -32.89152638226143
+          },
+          "pano7": {
+            "pitch": -35.94391248750041,
+            "yaw": 17.36744248396577
+          },
+          "pano3": {
+            "pitch": -32.90988308637022,
+            "yaw": -89.00528490757986
+          }
+        }
+      },
+      "pano5": {
+        "img": "https://teaewxyuimeiyzbrqpwj.supabase.co/storage/v1/object/public/pano/Pump1/Pano%20(5).webp",
+        "thumb": "https://teaewxyuimeiyzbrqpwj.supabase.co/storage/v1/object/public/pano/Pump1/thumbnail/Pano%20(5).webp",
+        "lat": 16.260538,
+        "lon": 73.72375,
+        "yaw": 0,
+        "links": {
+          "pano3": {
+            "pitch": -44.195439060831596,
+            "yaw": 178.25356361193352
+          },
+          "pano2": {
+            "pitch": -17.268542981842362,
+            "yaw": 176.1590937737056
+          }
+        }
+      },
+      "pano6": {
+        "img": "https://teaewxyuimeiyzbrqpwj.supabase.co/storage/v1/object/public/pano/Pump1/Pano%20(6).webp",
+        "thumb": "https://teaewxyuimeiyzbrqpwj.supabase.co/storage/v1/object/public/pano/Pump1/thumbnail/Pano%20(6).webp",
+        "lat": 16.260538,
+        "lon": 73.72375,
+        "yaw": 0,
+        "links": {
+          "pano4": {
+            "pitch": -34.73392887561504,
+            "yaw": 161.17675062429362
+          },
+          "pano3": {
+            "pitch": -31.08799463289908,
+            "yaw": -147.12780295398844
+          }
+        }
+      },
+      "pano7": {
+        "img": "https://teaewxyuimeiyzbrqpwj.supabase.co/storage/v1/object/public/pano/Pump1/Pano%20(7).webp",
+        "thumb": "https://teaewxyuimeiyzbrqpwj.supabase.co/storage/v1/object/public/pano/Pump1/thumbnail/Pano%20(7).webp",
+        "lat": 16.260538,
+        "lon": 73.72375,
+        "yaw": 0,
+        "links": {
+          "pano4": {
+            "pitch": -35.13587814084612,
+            "yaw": -146.09344546047396
+          }
+        }
+      },
+      "pano8": {
+        "img": "https://teaewxyuimeiyzbrqpwj.supabase.co/storage/v1/object/public/pano/Pump1/Pano%20(8).webp",
+        "thumb": "https://teaewxyuimeiyzbrqpwj.supabase.co/storage/v1/object/public/pano/Pump1/thumbnail/Pano%20(8).webp",
+        "lat": 16.260538,
+        "lon": 73.72375,
+        "yaw": 0,
+        "links": {
+          "pano2": {
+            "pitch": -4.869344572280344,
+            "yaw": -85.73667774240451
+          },
+          "pano9": {
+            "pitch": -5.620918605859826,
+            "yaw": -44.2449122102056
+          }
+        }
+      },
+      "pano9": {
+        "img": "https://teaewxyuimeiyzbrqpwj.supabase.co/storage/v1/object/public/pano/Pump1/Pano%20(9).webp",
+        "thumb": "https://teaewxyuimeiyzbrqpwj.supabase.co/storage/v1/object/public/pano/Pump1/thumbnail/Pano%20(9).webp",
+        "lat": 16.260538,
+        "lon": 73.72375,
+        "yaw": 0,
+        "links": {
+          "pano8": {
+            "pitch": -22.15328011595307,
+            "yaw": 138.14372613618042
+          }
+        }
+      }
+    }
+  },
+  "2026-03-01": {
+    "map": {
+      "image": "https://teaewxyuimeiyzbrqpwj.supabase.co/storage/v1/object/public/pano/Map2.jpeg",
+      "spots": {
+        "pano2": {
+          "x": 10.558152780563791,
+          "y": 97.52814633942789
+        },
+        "pano3": {
+          "x": 12.040105226750372,
+          "y": 65.54981269425484
+        },
+        "pano4": {
+          "x": 34.9533699716352,
+          "y": 64.66765176611213
+        },
+        "pano5": {
+          "x": 13.4080613309226,
+          "y": 32.248237656867715
+        },
+        "pano6": {
+          "x": 27.543607740702296,
+          "y": 33.3509388170461
+        },
+        "pano7": {
+          "x": 41.9071468345107,
+          "y": 34.2330997451888
+        },
+        "pano8": {
+          "x": 97.72209090297991,
+          "y": 97.11330965164089
+        },
+        "pano9": {
+          "x": 94.48944420508401,
+          "y": 68.56766578868402
+        }
+      }
+    },
+    "videos": {
+      "vid1": {
+        "name": "Warehouse Progress Walkthrough",
+        "url": "https://youtu.be/yktdBTEr0jc?si=l9frOrD67OOljTYH"
+      },
+      "vid2": {
+        "name": "Roof 360 Inspection",
+        "url": "https://youtu.be/wR9erEdaZwk?si=RZF6CMpcuAoZg496"
+      }
+    },
+    "summary": {
+      "floor": "Floor 1",
+      "progress": 72,
+      "completed": 18,
+      "inProgress": 7,
+      "issues": [
+        {
+          "panel": "pano4",
+          "title": "Water leakage in corner"
+        },
+        {
+          "panel": "pano1",
+          "title": "Electrical wiring exposed"
+        }
+      ],
+      "good": [
+        "Painting completed in panel3",
+        "Waterproofing done in panel8"
+      ],
+      "pending": [
+        "Ceiling finishing",
+        "Lighting installation"
+      ]
+    },
+    "panoramic": {
+      "pano1": {
+        "img": "https://teaewxyuimeiyzbrqpwj.supabase.co/storage/v1/object/public/pano/Pump2/Pano%20(1).webp",
+        "imghd": "https://teaewxyuimeiyzbrqpwj.supabase.co/storage/v1/object/public/pano/Pump2/Pano%20(1).webp",
+        "thumb": "https://teaewxyuimeiyzbrqpwj.supabase.co/storage/v1/object/public/pano/Pump2/thumbnail/Pano%20(1).webp",
+        "lat": 16.260538,
+        "lon": 73.72375,
+        "yaw": 0,
+        "links": {
+          "pano2": {
+            "pitch": -27.30939430948401,
+            "yaw": 173.05775952920214
+          }
+        }
+      },
+      "pano2": {
+        "img": "https://teaewxyuimeiyzbrqpwj.supabase.co/storage/v1/object/public/pano/Pump2/Pano%20(2).webp",
+        "thumb": "https://teaewxyuimeiyzbrqpwj.supabase.co/storage/v1/object/public/pano/Pump2/thumbnail/Pano%20(2).webp",
+        "lat": 16.260538,
+        "lon": 73.72375,
+        "yaw": 0,
+        "links": {
+          "pano1": {
+            "pitch": 12.662731261212194,
+            "yaw": -7.281278420964301
+          },
+          "pano3": {
+            "pitch": -10.275395196552589,
+            "yaw": 165.2142625084195
+          },
+          "pano8": {
+            "pitch": -7.964770645898665,
+            "yaw": -97.42923309973129
+          }
+        }
+      },
+      "pano3": {
+        "img": "https://teaewxyuimeiyzbrqpwj.supabase.co/storage/v1/object/public/pano/Pump2/Pano%20(3).webp",
+        "thumb": "https://teaewxyuimeiyzbrqpwj.supabase.co/storage/v1/object/public/pano/Pump2/thumbnail/Pano%20(3).webp",
+        "lat": 16.260538,
+        "lon": 73.72375,
+        "yaw": 0,
+        "links": {
+          "pano4": {
+            "pitch": -40.480924566113345,
+            "yaw": -95.18398404782899
+          },
+          "pano5": {
+            "pitch": -44.621511378976294,
+            "yaw": 167.00519527998873
+          },
+          "pano2": {
+            "pitch": -33.255687516547525,
+            "yaw": -10.403992768540359
+          }
+        }
+      },
+      "pano4": {
+        "img": "https://teaewxyuimeiyzbrqpwj.supabase.co/storage/v1/object/public/pano/Pump2/Pano%20(4).webp",
+        "thumb": "https://teaewxyuimeiyzbrqpwj.supabase.co/storage/v1/object/public/pano/Pump2/thumbnail/Pano%20(4).webp",
+        "lat": 16.260538,
+        "lon": 73.72375,
+        "yaw": 0,
+        "links": {
+          "pano6": {
+            "pitch": -36.62595100265007,
+            "yaw": 144.38274063906223
+          },
+          "pano7": {
+            "pitch": -39.53094391920101,
+            "yaw": -162.76172238404288
+          },
+          "pano3": {
+            "pitch": -39.05604557888784,
+            "yaw": 89.15428787198101
+          }
+        }
+      },
+      "pano5": {
+        "img": "https://teaewxyuimeiyzbrqpwj.supabase.co/storage/v1/object/public/pano/Pump2/Pano%20(5).webp",
+        "thumb": "https://teaewxyuimeiyzbrqpwj.supabase.co/storage/v1/object/public/pano/Pump2/thumbnail/Pano%20(5).webp",
+        "lat": 16.260538,
+        "lon": 73.72375,
+        "yaw": 0,
+        "links": {
+          "pano3": {
+            "pitch": -43.47016829134153,
+            "yaw": -7.858678652672639
+          },
+          "pano2": {
+            "pitch": -19.92675725298362,
+            "yaw": -11.936730717088224
+          }
+        }
+      },
+      "pano6": {
+        "img": "https://teaewxyuimeiyzbrqpwj.supabase.co/storage/v1/object/public/pano/Pump2/Pano%20(6).webp",
+        "thumb": "https://teaewxyuimeiyzbrqpwj.supabase.co/storage/v1/object/public/pano/Pump2/thumbnail/Pano%20(6).webp",
+        "lat": 16.260538,
+        "lon": 73.72375,
+        "yaw": 0,
+        "links": {
+          "pano4": {
+            "pitch": -38.128677030616686,
+            "yaw": -12.470650760270066
+          }
+        }
+      },
+      "pano7": {
+        "img": "https://teaewxyuimeiyzbrqpwj.supabase.co/storage/v1/object/public/pano/Pump2/Pano%20(7).webp",
+        "thumb": "https://teaewxyuimeiyzbrqpwj.supabase.co/storage/v1/object/public/pano/Pump2/thumbnail/Pano%20(7).webp",
+        "lat": 16.260538,
+        "lon": 73.72375,
+        "yaw": 0,
+        "links": {
+          "pano8": {
+            "pitch": -3.811735841274765,
+            "yaw": -93.85424571067176
+          },
+          "pano4": {
+            "pitch": -36.36397618872001,
+            "yaw": 34.48352600770791
+          }
+        }
+      },
+      "pano8": {
+        "img": "https://teaewxyuimeiyzbrqpwj.supabase.co/storage/v1/object/public/pano/Pump2/Pano%20(8).webp",
+        "thumb": "https://teaewxyuimeiyzbrqpwj.supabase.co/storage/v1/object/public/pano/Pump2/thumbnail/Pano%20(8).webp",
+        "lat": 16.260538,
+        "lon": 73.72375,
+        "yaw": 0,
+        "links": {
+          "pano2": {
+            "pitch": -8.56941102630187,
+            "yaw": -74.57358209599137
+          },
+          "pano9": {
+            "pitch": -10.565193579599088,
+            "yaw": -27.974655355468723
+          }
+        }
+      },
+      "pano9": {
+        "img": "https://teaewxyuimeiyzbrqpwj.supabase.co/storage/v1/object/public/pano/Pump2/Pano%20(9).webp",
+        "thumb": "https://teaewxyuimeiyzbrqpwj.supabase.co/storage/v1/object/public/pano/Pump2/thumbnail/Pano%20(9).webp",
+        "lat": 16.260538,
+        "lon": 73.72375,
+        "yaw": 0,
+        "links": {}
+      }
+    }
+  }
+}
