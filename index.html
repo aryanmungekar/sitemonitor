@@ -665,22 +665,22 @@
 ================================ */
 
     #blueprintPopup {
-  position: fixed;
-  top: calc(100vh - 247px);
-  left: 5px;
-  width: 320px;
-  height: 220px;
-  background: #fff;
-  border-radius: 8px;
-  z-index: 6000;
-  display: none;
-  resize: both;
-  overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+      position: fixed;
+      top: calc(100vh - 247px);
+      left: 5px;
+      width: 320px;
+      height: 220px;
+      background: #fff;
+      border-radius: 8px;
+      z-index: 6000;
+      display: none;
+      resize: both;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
 
-  /* 🔥 animate BOTH top and height */
-  transition: top 0.35s ease, height 0.35s ease;
-}
+      /* 🔥 animate BOTH top and height */
+      transition: top 0.35s ease, height 0.35s ease;
+    }
 
     #blueprintHeader {
       background: #0f172a;
@@ -1287,114 +1287,118 @@
     }
 
     .split-blueprint {
-  position: absolute;
-  bottom: 12px;
-  right: 12px;
-  width: 260px;
-  height: 180px;
-  background: white;
-  border-radius: 10px;
-  border: 2px solid #2563eb;
-  overflow: hidden;
-  z-index: 20;
-}
+      position: absolute;
+      bottom: 12px;
+      right: 12px;
+      width: 260px;
+      height: 180px;
+      background: white;
+      border-radius: 10px;
+      border: 2px solid #2563eb;
+      overflow: hidden;
+      z-index: 20;
+    }
 
-.split-blueprint-container {
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
+    .split-blueprint-container {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
 
-.split-blueprint-container img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
+    .split-blueprint-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
 
-.split-blueprint-marker {
-  position: absolute;
-  width: 10px;
-  height: 10px;
-  background: #64748b;
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  cursor: pointer;
-}
+    .split-blueprint-marker {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background: #64748b;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      cursor: pointer;
+    }
 
-.split-blueprint-marker.active {
-  background: red;
-  transform: translate(-50%, -50%) scale(1.4);
-}
-.split-blueprint-toolbar {
-  position: absolute;
-  top: 6px;
-  right: 6px;
-  background: rgba(15,23,42,0.8);
-  border-radius: 8px;
-  padding: 4px;
-  display: flex;
-  gap: 4px;
-  z-index: 50;
-}
+    .split-blueprint-marker.active {
+      background: red;
+      transform: translate(-50%, -50%) scale(1.4);
+    }
 
-.split-blueprint-toolbar .material-icons {
-  font-size: 16px;
-  color: white;
-  cursor: pointer;
-}
-.split-blueprint.minimized {
-  height: 40px !important;
-}
+    .split-blueprint-toolbar {
+      position: absolute;
+      top: 6px;
+      right: 6px;
+      background: rgba(15, 23, 42, 0.8);
+      border-radius: 8px;
+      padding: 4px;
+      display: flex;
+      gap: 4px;
+      z-index: 50;
+    }
 
-.split-blueprint.minimized .split-blueprint-container {
-  display: none;
-}
+    .split-blueprint-toolbar .material-icons {
+      font-size: 16px;
+      color: white;
+      cursor: pointer;
+    }
 
-.split-blueprint.fullscreen {
-  position: fixed !important;
-  inset: 0 !important;
-  width: 100% !important;
-  height: calc(100vh - 88px) !important;
-  z-index: 10000 !important;
-  border-radius: 0;
-}
-.project-title {
-  font-size: 18px;
-  font-weight: 700;
-  letter-spacing: 0.5px;
-  padding-right: 18px;
-  border-right: 4px solid #3b82f6;
-  color: #ffffff;
-  display: flex;
-  align-items: center;
+    .split-blueprint.minimized {
+      height: 40px !important;
+    }
+
+    .split-blueprint.minimized .split-blueprint-container {
+      display: none;
+    }
+
+    .split-blueprint.fullscreen {
+      position: fixed !important;
+      inset: 0 !important;
+      width: 100% !important;
+      height: calc(100vh - 88px) !important;
+      z-index: 10000 !important;
+      border-radius: 0;
+    }
+
+    .project-title {
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      padding-right: 18px;
+      border-right: 4px solid #3b82f6;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
       min-width: 200px;
-}
-/* ===============================
+    }
+
+    /* ===============================
    PANO FULLSCREEN MODE
 ================================ */
 
-#viewer360.fullscreen-mode {
-  position: fixed;
-  inset: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: 9998;
-}
+    #viewer360.fullscreen-mode {
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 9998;
+    }
 
-#viewer360.fullscreen-mode #pano {
-  height: 100vh !important;
-}
+    #viewer360.fullscreen-mode #pano {
+      height: 100vh !important;
+    }
 
-#viewer360.fullscreen-mode .pano-toolbar {
-  top: 20px;
-  right: 20px;
-  z-index: 9999;
-}
+    #viewer360.fullscreen-mode .pano-toolbar {
+      top: 20px;
+      right: 20px;
+      z-index: 9999;
+    }
 
-/* Keep blueprint visible above pano */
-#blueprintPopup.fullscreen-overlay {
-  z-index: 10000;
-}
+    /* Keep blueprint visible above pano */
+    #blueprintPopup.fullscreen-overlay {
+      z-index: 10000;
+    }
   </style>
 </head>
 
@@ -1405,8 +1409,8 @@
 
     <!-- LEFT: Title -->
     <div class="project-title" id="projectTitle">
-  Loading Project...
-</div>
+      Loading Project...
+    </div>
 
 
 
@@ -1423,7 +1427,7 @@
           <option value="video">Videos</option>
         </select>
 
- 
+
 
       </div>
 
@@ -1431,7 +1435,7 @@
       <!-- RIGHT: Account -->
       <div class="header-right">
 
-               
+
 
         <button class="header-btn" onclick="openSummary()">
           AI Summary
@@ -1518,42 +1522,42 @@
       </div>
 
       <div class="tool-btn" onclick="togglePanoFullscreen()" id="fullscreenBtn">
-  <span class="material-icons" id="fullscreenIcon">fullscreen</span>
-  <div class="tool-label" id="fullscreenLabel">Fullscreen</div>
-</div>
-    </div>
-
-
-
-
-  
-  
-  <!-- BLUEPRINT POPUP -->
-  <div id="blueprintPopup">
-
-    <div id="blueprintHeader">
-      <div style="display:flex;align-items:center;gap:10px;">
-        <span>Layout</span>
-      </div>
-
-      <div style="display:flex;gap:6px;align-items:center;">
-        <span class="material-icons" onclick="zoomBlueprint(1)">zoom_in</span>
-        <span class="material-icons" onclick="zoomBlueprint(-1)">zoom_out</span>
-        <span class="material-icons" onclick="rotateBlueprint(-15)">rotate_left</span>
-        <span class="material-icons" onclick="rotateBlueprint(15)">rotate_right</span>
-        <span class="material-icons" onclick="resetBlueprint()">restart_alt</span>
-        <span class="material-icons" onclick="toggleBlueprintMinimize()">remove</span>
+        <span class="material-icons" id="fullscreenIcon">fullscreen</span>
+        <div class="tool-label" id="fullscreenLabel">Fullscreen</div>
       </div>
     </div>
 
-    <div id="blueprintViewport">
-      <div id="blueprintContainer">
-        <img id="blueprintImage">
-      </div>
-    </div>
 
+
+
+
+
+    <!-- BLUEPRINT POPUP -->
+    <div id="blueprintPopup">
+
+      <div id="blueprintHeader">
+        <div style="display:flex;align-items:center;gap:10px;">
+          <span>Layout</span>
+        </div>
+
+        <div style="display:flex;gap:6px;align-items:center;">
+          <span class="material-icons" onclick="zoomBlueprint(1)">zoom_in</span>
+          <span class="material-icons" onclick="zoomBlueprint(-1)">zoom_out</span>
+          <span class="material-icons" onclick="rotateBlueprint(-15)">rotate_left</span>
+          <span class="material-icons" onclick="rotateBlueprint(15)">rotate_right</span>
+          <span class="material-icons" onclick="resetBlueprint()">restart_alt</span>
+          <span class="material-icons" onclick="toggleBlueprintMinimize()">remove</span>
+        </div>
+      </div>
+
+      <div id="blueprintViewport">
+        <div id="blueprintContainer">
+          <img id="blueprintImage">
+        </div>
+      </div>
+
+    </div>
   </div>
-</div>
 
   <!-- FULLSCREEN MAP VIEWER -->
   <div id="mapFullscreen">
@@ -1693,95 +1697,97 @@
 
 
 
- <!-- SPLIT COMPARE VIEW -->
-<div class="compare-view" id="compareView" style="display:none;">
+  <!-- SPLIT COMPARE VIEW -->
+  <div class="compare-view" id="compareView" style="display:none;">
 
-  <div style="display:grid;grid-template-columns:1fr 1fr;height:100%;">
+    <div style="display:grid;grid-template-columns:1fr 1fr;height:100%;">
 
-    <!-- LEFT PANE -->
-    <div class="compare-pane">
+      <!-- LEFT PANE -->
+      <div class="compare-pane">
 
-      <div class="compare-header">
-        <select id="leftDateSelect" onchange="updateCompare('left')"></select>
+        <div class="compare-header">
+          <select id="leftDateSelect" onchange="updateCompare('left')"></select>
+        </div>
+
+        <div id="leftPano" class="compare-pano"></div>
+
+        <div class="split-blueprint" id="leftBlueprint">
+
+          <div class="split-blueprint-toolbar">
+            <span class="material-icons" onclick="zoomSplitBlueprint('left',1)">zoom_in</span>
+            <span class="material-icons" onclick="zoomSplitBlueprint('left',-1)">zoom_out</span>
+            <span class="material-icons" onclick="rotateSplitBlueprint('left',-15)">rotate_left</span>
+            <span class="material-icons" onclick="rotateSplitBlueprint('left',15)">rotate_right</span>
+            <span class="material-icons" onclick="resetSplitBlueprint('left')">restart_alt</span>
+            <span class="material-icons" onclick="toggleSplitMinimize('left')">remove</span>
+            <span class="material-icons" onclick="toggleSplitFullscreen('left')">fullscreen</span>
+          </div>
+
+
+          <div class="split-blueprint-container" id="leftBlueprintContainer">
+            <img id="leftBlueprintImage">
+          </div>
+
+        </div>
+
       </div>
 
-      <div id="leftPano" class="compare-pano"></div>
+      <!-- RIGHT PANE -->
+      <div class="compare-pane">
 
-      <div class="split-blueprint" id="leftBlueprint">
+        <div class="compare-header">
+          <select id="rightDateSelect" onchange="updateCompare('right')"></select>
+        </div>
 
-  <div class="split-blueprint-toolbar">
-  <span class="material-icons" onclick="zoomSplitBlueprint('left',1)">zoom_in</span>
-  <span class="material-icons" onclick="zoomSplitBlueprint('left',-1)">zoom_out</span>
-  <span class="material-icons" onclick="rotateSplitBlueprint('left',-15)">rotate_left</span>
-  <span class="material-icons" onclick="rotateSplitBlueprint('left',15)">rotate_right</span>
-  <span class="material-icons" onclick="resetSplitBlueprint('left')">restart_alt</span>
-  <span class="material-icons" onclick="toggleSplitMinimize('left')">remove</span>
-  <span class="material-icons" onclick="toggleSplitFullscreen('left')">fullscreen</span>
-</div>
+        <div id="rightPano" class="compare-pano"></div>
+
+        <div class="split-blueprint" id="rightBlueprint">
+
+          <div class="split-blueprint-toolbar">
+            <span class="material-icons" onclick="zoomSplitBlueprint('right',1)">zoom_in</span>
+            <span class="material-icons" onclick="zoomSplitBlueprint('right',-1)">zoom_out</span>
+            <span class="material-icons" onclick="rotateSplitBlueprint('right',-15)">rotate_left</span>
+            <span class="material-icons" onclick="rotateSplitBlueprint('right',15)">rotate_right</span>
+            <span class="material-icons" onclick="resetSplitBlueprint('right')">restart_alt</span>
+            <span class="material-icons" onclick="toggleSplitMinimize('right')">remove</span>
+            <span class="material-icons" onclick="toggleSplitFullscreen('right')">fullscreen</span>
+          </div>
 
 
-  <div class="split-blueprint-container" id="leftBlueprintContainer">
-    <img id="leftBlueprintImage">
-  </div>
+          <div class="split-blueprint-container" id="rightBlueprintContainer">
+            <img id="rightBlueprintImage">
+          </div>
 
-</div>
+        </div>
 
-    </div>
 
-    <!-- RIGHT PANE -->
-    <div class="compare-pane">
-
-      <div class="compare-header">
-        <select id="rightDateSelect" onchange="updateCompare('right')"></select>
       </div>
 
-      <div id="rightPano" class="compare-pano"></div>
+    </div>
 
-      <div class="split-blueprint" id="rightBlueprint">
+    <!-- SPLIT TOOLBAR -->
+    <div class="split-toolbar pano-toolbar">
 
-  <div class="split-blueprint-toolbar">
-  <span class="material-icons" onclick="zoomSplitBlueprint('right',1)">zoom_in</span>
-  <span class="material-icons" onclick="zoomSplitBlueprint('right',-1)">zoom_out</span>
-  <span class="material-icons" onclick="rotateSplitBlueprint('right',-15)">rotate_left</span>
-  <span class="material-icons" onclick="rotateSplitBlueprint('right',15)">rotate_right</span>
-  <span class="material-icons" onclick="resetSplitBlueprint('right')">restart_alt</span>
-  <span class="material-icons" onclick="toggleSplitMinimize('right')">remove</span>
-  <span class="material-icons" onclick="toggleSplitFullscreen('right')">fullscreen</span>
-</div>
+      <div class="tool-btn" onclick="closeCompare()">
+        <span class="material-icons">close</span>
+        <div class="tool-label">Close</div>
+      </div>
 
+      <div class="tool-btn" onclick="toggleCompareLock()" id="lockBtn">
+        <span class="material-icons" id="lockIcon">lock_open</span>
+        <div class="tool-label" id="lockLabel">Unlock</div>
+      </div>
 
-  <div class="split-blueprint-container" id="rightBlueprintContainer">
-    <img id="rightBlueprintImage">
-  </div>
+      <div class="tool-btn" onclick="exitSplitToPano()">
+        <span class="material-icons">panorama</span>
+        <div class="tool-label">Pano Mode</div>
+      </div>
 
-</div>
-
+      
 
     </div>
 
   </div>
-
-  <!-- SPLIT TOOLBAR -->
-  <div class="split-toolbar pano-toolbar">
-
-    <div class="tool-btn" onclick="closeCompare()">
-      <span class="material-icons">close</span>
-      <div class="tool-label">Close</div>
-    </div>
-
-    <div class="tool-btn" onclick="toggleCompareLock()" id="lockBtn">
-      <span class="material-icons" id="lockIcon">lock_open</span>
-      <div class="tool-label" id="lockLabel">Unlock</div>
-    </div>
-
-    <div class="tool-btn" onclick="exitSplitToPano()">
-      <span class="material-icons">panorama</span>
-      <div class="tool-label">Pano Mode</div>
-    </div>
-
-  </div>
-
-</div>
 
 
 
@@ -1834,9 +1840,9 @@
 
   <script>
     let splitBlueprintState = {
-  left: { scale:1, rotation:0, offsetX:0, offsetY:0 },
-  right: { scale:1, rotation:0, offsetX:0, offsetY:0 }
-};
+      left: { scale: 1, rotation: 0, offsetX: 0, offsetY: 0 },
+      right: { scale: 1, rotation: 0, offsetX: 0, offsetY: 0 }
+    };
 
     let allData = {};
     let dates = [];
@@ -1871,7 +1877,6 @@
     let addedScenes = {};
     let vrHotspotIds = [];
 
-
     let issueMode = false;
     let issuesVisible = true;
     let loadedIssues = {};
@@ -1889,6 +1894,7 @@
     let mapOffsetXFS = 0;
     let mapOffsetYFS = 0;
 
+    let alignOffset = 0;
     const mapContainerFS = document.getElementById("mapImageContainer");
     const mapImageFS = document.getElementById("mapFullscreenImage");
 
@@ -1907,34 +1913,34 @@
       updateBlueprintTransform();
     }
 
-function hideBlueprintPopup() {
-  const popup = document.getElementById("blueprintPopup");
-  if (!popup) return;
+    function hideBlueprintPopup() {
+      const popup = document.getElementById("blueprintPopup");
+      if (!popup) return;
 
-  popup.style.display = "none";
-  popup.classList.remove("fullscreen");
+      popup.style.display = "none";
+      popup.classList.remove("fullscreen");
 
-  // 🔥 Reset position to bottom-left cleanly
-  popup.style.top = (window.innerHeight - 247) + "px";
-  popup.style.left = "5px";
-}
-
-
-function initializeProject() {
-    if (!allData.project) return;
-     projectData = allData.project;   // 🔥 THIS WAS MISSING
-
-    const projectName = allData.project.name || "Project";
-
-    // Update Header Title
-    const titleEl = document.getElementById("projectTitle");
-    if (titleEl) {
-        titleEl.textContent = projectName + "";
+      // 🔥 Reset position to bottom-left cleanly
+      popup.style.top = (window.innerHeight - 247) + "px";
+      popup.style.left = "5px";
     }
 
-    // Optional: Update Page Title (browser tab)
-    document.title = projectName + " | Site Monitoring";
-}
+
+    function initializeProject() {
+      if (!allData.project) return;
+      projectData = allData.project;   // 🔥 THIS WAS MISSING
+
+      const projectName = allData.project.name || "Project";
+
+      // Update Header Title
+      const titleEl = document.getElementById("projectTitle");
+      if (titleEl) {
+        titleEl.textContent = projectName + "";
+      }
+
+      // Optional: Update Page Title (browser tab)
+      document.title = projectName + " | Site Monitoring";
+    }
 
     function toggleMapPoints() {
 
@@ -2108,18 +2114,27 @@ function initializeProject() {
     function startSync(source) {
       activeSource = source;
 
-      // 🔑 instant alignment when lock is ON
-      if (compareLocked && leftViewer && rightViewer) {
-        if (source === "left") {
-          rightViewer.setYaw(leftViewer.getYaw());
-          rightViewer.setPitch(leftViewer.getPitch());
-        } else {
-          leftViewer.setYaw(rightViewer.getYaw());
-          leftViewer.setPitch(rightViewer.getPitch());
-        }
+      if (!compareLocked || !leftViewer || !rightViewer) return;
+
+      if (source === "left") {
+
+        const correctedYaw =
+          normalizeYaw(leftViewer.getYaw() + alignOffset);
+
+        rightViewer.setYaw(correctedYaw);
+        rightViewer.setPitch(leftViewer.getPitch());
+        rightViewer.setHfov(leftViewer.getHfov());
+
+      } else {
+
+        const correctedYaw =
+          normalizeYaw(rightViewer.getYaw() - alignOffset);
+
+        leftViewer.setYaw(correctedYaw);
+        leftViewer.setPitch(rightViewer.getPitch());
+        leftViewer.setHfov(rightViewer.getHfov());
       }
     }
-
 
 
 
@@ -2146,12 +2161,20 @@ function initializeProject() {
 
       requestAnimationFrame(() => {
         if (activeSource === "left") {
-          rightViewer.setYaw(leftViewer.getYaw());
+
+          const correctedYaw =
+            normalizeYaw(leftViewer.getYaw() + alignOffset);
+
+          rightViewer.setYaw(correctedYaw);
           rightViewer.setPitch(leftViewer.getPitch());
           rightViewer.setHfov(leftViewer.getHfov());
         }
         else if (activeSource === "right") {
-          leftViewer.setYaw(rightViewer.getYaw());
+
+          const correctedYaw =
+            normalizeYaw(rightViewer.getYaw() - alignOffset);
+
+          leftViewer.setYaw(correctedYaw);
           leftViewer.setPitch(rightViewer.getPitch());
           leftViewer.setHfov(rightViewer.getHfov());
         }
@@ -2208,64 +2231,93 @@ function initializeProject() {
 
 
 
-  function populateCompareDates() {
+    function populateCompareDates() {
 
-  const leftSel = document.getElementById("leftDateSelect");
-  const rightSel = document.getElementById("rightDateSelect");
+      const leftSel = document.getElementById("leftDateSelect");
+      const rightSel = document.getElementById("rightDateSelect");
 
-  leftSel.innerHTML = "";
-  rightSel.innerHTML = "";
+      leftSel.innerHTML = "";
+      rightSel.innerHTML = "";
 
-  dates.forEach(d => {
+      dates.forEach(d => {
 
-    const panoData = allData[d]?.panoramic;
+        const panoData = allData[d]?.panoramic;
 
-    if (!panoData) return;
-    if (Object.keys(panoData).length === 0) return;
+        if (!panoData) return;
+        if (Object.keys(panoData).length === 0) return;
 
-    leftSel.innerHTML += `<option value="${d}">${d}</option>`;
-    rightSel.innerHTML += `<option value="${d}">${d}</option>`;
-  });
+        leftSel.innerHTML += `<option value="${d}">${d}</option>`;
+        rightSel.innerHTML += `<option value="${d}">${d}</option>`;
+      });
 
-  leftSel.value = leftCompareDate;
-  rightSel.value = rightCompareDate;
-}
+      leftSel.value = leftCompareDate;
+      rightSel.value = rightCompareDate;
+    }
 
 
-   function loadComparePanorama() {
+    function loadComparePanorama() {
+      if (leftViewer) leftViewer.destroy();
+      if (rightViewer) rightViewer.destroy();
 
-  if (leftViewer) leftViewer.destroy();
-  if (rightViewer) rightViewer.destroy();
+      leftSceneId = getValidSceneId(leftCompareDate, leftSceneId);
+      rightSceneId = getValidSceneId(rightCompareDate, rightSceneId);
 
-  leftSceneId = getValidSceneId(leftCompareDate, leftSceneId);
-  rightSceneId = getValidSceneId(rightCompareDate, rightSceneId);
+      loadSplitBlueprint("left", leftCompareDate, leftSceneId);
+      loadSplitBlueprint("right", rightCompareDate, rightSceneId);
 
-  loadSplitBlueprint("left", leftCompareDate, leftSceneId);
-  loadSplitBlueprint("right", rightCompareDate, rightSceneId);
+      const leftScene = allData[leftCompareDate].panoramic[leftSceneId];
+      const rightScene = allData[rightCompareDate].panoramic[rightSceneId];
 
-  const leftScene = allData[leftCompareDate].panoramic[leftSceneId];
-  const rightScene = allData[rightCompareDate].panoramic[rightSceneId];
+      // 🔥 PER PANO ALIGNMENT
+      const leftAlign = leftScene.align || 0;
+      const rightAlign = rightScene.align || 0;
 
-  leftViewer = pannellum.viewer("leftPano", {
-    type: "equirectangular",
-    panorama: leftScene.img,
-    autoLoad: true,
-    compass: true
-  });
+      console.log("Left align:", leftAlign);
+      console.log("Right align:", rightAlign);
+      console.log("Computed alignOffset:", alignOffset);
 
-  rightViewer = pannellum.viewer("rightPano", {
-    type: "equirectangular",
-    panorama: rightScene.img,
-    autoLoad: true,
-    compass: true
-  });
+      // How much right must rotate relative to left
+      alignOffset = normalizeYaw(rightAlign - leftAlign);
 
-  leftViewer.on("mousedown", () => startSync("left"));
-  rightViewer.on("mousedown", () => startSync("right"));
 
-  leftViewer.on("viewchange", syncIfLocked);
-  rightViewer.on("viewchange", syncIfLocked);
-}
+
+      leftViewer = pannellum.viewer("leftPano", {
+        type: "equirectangular",
+        panorama: leftScene.img,
+        autoLoad: true,
+        compass: true
+      });
+
+      rightViewer = pannellum.viewer("rightPano", {
+        type: "equirectangular",
+        panorama: rightScene.img,
+        autoLoad: true,
+        compass: true
+      });
+
+      leftViewer.on("mousedown", () => startSync("left"));
+      rightViewer.on("mousedown", () => startSync("right"));
+
+      leftViewer.on("viewchange", syncIfLocked);
+      rightViewer.on("viewchange", syncIfLocked);
+
+      // 🔥 FORCE BOTH TO FACE SAME DIRECTION ON LOAD
+      setTimeout(() => {
+
+        if (!leftViewer || !rightViewer) return;
+
+        const baseYaw = leftViewer.getYaw();
+
+        rightViewer.setYaw(
+          normalizeYaw(baseYaw + alignOffset)
+        );
+
+        rightViewer.setPitch(leftViewer.getPitch());
+        rightViewer.setHfov(leftViewer.getHfov());
+
+      }, 300);
+    }
+
 
 
     function syncViewers(source, target, sourceScene, targetScene) {
@@ -2310,6 +2362,7 @@ function initializeProject() {
       if (side === "right") rightSceneId = null;
 
       loadComparePanorama();
+
     }
 
     function closeCompare() {
@@ -2333,7 +2386,7 @@ function initializeProject() {
       .then(data => {
         allData = data;
 
-            initializeProject();   // 🔥 ADD THIS
+        initializeProject();   // 🔥 ADD THIS
 
         dates = Object.keys(allData)
           .filter(key => key !== "project" && key !== "ledger")
@@ -2447,6 +2500,17 @@ function initializeProject() {
       if (compareLocked) {
         icon.textContent = "lock";
         label.textContent = "Lock";
+
+        // 🔥 FORCE INITIAL ALIGNMENT
+        if (leftViewer && rightViewer) {
+          const correctedYaw =
+            normalizeYaw(leftViewer.getYaw() + alignOffset);
+
+          rightViewer.setYaw(correctedYaw);
+          rightViewer.setPitch(leftViewer.getPitch());
+          rightViewer.setHfov(leftViewer.getHfov());
+        }
+
       } else {
         icon.textContent = "lock_open";
         label.textContent = "Unlock";
@@ -2826,24 +2890,24 @@ function initializeProject() {
 
     function toggleBlueprintMinimize() {
 
-  const popup = document.getElementById("blueprintPopup");
+      const popup = document.getElementById("blueprintPopup");
 
-  const isMinimized = popup.classList.contains("minimized");
+      const isMinimized = popup.classList.contains("minimized");
 
-  if (!isMinimized) {
-    // 🔥 Move smoothly to bottom
-    popup.style.top = (window.innerHeight - 67) + "px"; 
-    // 40px height + 27px margin
+      if (!isMinimized) {
+        // 🔥 Move smoothly to bottom
+        popup.style.top = (window.innerHeight - 67) + "px";
+        // 40px height + 27px margin
 
-    popup.classList.add("minimized");
+        popup.classList.add("minimized");
 
-  } else {
-    // 🔥 Restore to original size AND original position
-    popup.classList.remove("minimized");
+      } else {
+        // 🔥 Restore to original size AND original position
+        popup.classList.remove("minimized");
 
-    popup.style.top = (window.innerHeight - 247) + "px";
-  }
-}
+        popup.style.top = (window.innerHeight - 247) + "px";
+      }
+    }
 
     (function makeBlueprintDraggable() {
       const popup = document.getElementById("blueprintPopup");
@@ -3177,7 +3241,7 @@ function initializeProject() {
 
 
     function openVideo(url) {
-       hideBlueprintPopup();   // 🔥 ADD THIS
+      hideBlueprintPopup();   // 🔥 ADD THIS
 
       document.getElementById("mediaGrid").style.display = "none";
       const viewerEl = document.getElementById("viewer360");
@@ -3206,7 +3270,7 @@ function initializeProject() {
     }
 
     function openSummary() {
-        hideBlueprintPopup(); 
+      hideBlueprintPopup();
       // DO NOT close pano forcibly
       const summaryEl = document.getElementById("summaryView");
       if (!summaryEl) return;
@@ -3716,7 +3780,7 @@ function initializeProject() {
       }
     }
     function openLedger() {
-        hideBlueprintPopup();   // 🔥 ADD THIS
+      hideBlueprintPopup();   // 🔥 ADD THIS
       const ledgerEl = document.getElementById("ledgerView");
       if (!ledgerEl) return;
 
@@ -3842,7 +3906,7 @@ function initializeProject() {
     }
 
     function openIssueCenter() {
-hideBlueprintPopup();   // 🔥 ADD THIS
+      hideBlueprintPopup();   // 🔥 ADD THIS
 
       document.getElementById("mediaGrid").style.display = "none";
       document.getElementById("viewer360").style.display = "none";
@@ -3940,140 +4004,140 @@ hideBlueprintPopup();   // 🔥 ADD THIS
       }, 800);
     }
 
-function loadSplitBlueprint(side, date, activeSceneId) {
+    function loadSplitBlueprint(side, date, activeSceneId) {
 
-  const imageEl = document.getElementById(side + "BlueprintImage");
-  const container = document.getElementById(side + "BlueprintContainer");
+      const imageEl = document.getElementById(side + "BlueprintImage");
+      const container = document.getElementById(side + "BlueprintContainer");
 
-  container.querySelectorAll(".split-blueprint-marker")
-           .forEach(el => el.remove());
+      container.querySelectorAll(".split-blueprint-marker")
+        .forEach(el => el.remove());
 
-  const mapData = allData[date].map;
-  if (!mapData) return;
+      const mapData = allData[date].map;
+      if (!mapData) return;
 
-  imageEl.src = mapData.image;
+      imageEl.src = mapData.image;
 
-  const spots = mapData.spots || {};
+      const spots = mapData.spots || {};
 
-  Object.keys(spots).forEach(panoId => {
+      Object.keys(spots).forEach(panoId => {
 
-    const spot = spots[panoId];
+        const spot = spots[panoId];
 
-    const marker = document.createElement("div");
-    marker.className = "split-blueprint-marker";
+        const marker = document.createElement("div");
+        marker.className = "split-blueprint-marker";
 
-    if (panoId === activeSceneId) {
-      marker.classList.add("active");
+        if (panoId === activeSceneId) {
+          marker.classList.add("active");
+        }
+
+        marker.style.left = spot.x + "%";
+        marker.style.top = spot.y + "%";
+
+        marker.onclick = () => {
+          if (compareLocked) return;
+
+          if (side === "left") leftSceneId = panoId;
+          else rightSceneId = panoId;
+
+          loadComparePanorama();
+        };
+
+        container.appendChild(marker);
+      });
     }
+    function updateSplitBlueprint(side) {
+      const state = splitBlueprintState[side];
+      const container = document.getElementById(side + "BlueprintContainer");
 
-    marker.style.left = spot.x + "%";
-    marker.style.top = spot.y + "%";
-
-    marker.onclick = () => {
-      if (compareLocked) return;
-
-      if (side === "left") leftSceneId = panoId;
-      else rightSceneId = panoId;
-
-      loadComparePanorama();
-    };
-
-    container.appendChild(marker);
-  });
-}
-function updateSplitBlueprint(side){
-  const state = splitBlueprintState[side];
-  const container = document.getElementById(side+"BlueprintContainer");
-
-  container.style.transform =
-    `translate(${state.offsetX}px,${state.offsetY}px)
+      container.style.transform =
+        `translate(${state.offsetX}px,${state.offsetY}px)
      scale(${state.scale})
      rotate(${state.rotation}deg)`;
-}
+    }
 
-function zoomSplitBlueprint(side,dir){
-  const state = splitBlueprintState[side];
-  state.scale += dir*0.25;
-  state.scale = Math.max(0.5,Math.min(4,state.scale));
-  updateSplitBlueprint(side);
-}
+    function zoomSplitBlueprint(side, dir) {
+      const state = splitBlueprintState[side];
+      state.scale += dir * 0.25;
+      state.scale = Math.max(0.5, Math.min(4, state.scale));
+      updateSplitBlueprint(side);
+    }
 
-function rotateSplitBlueprint(side,deg){
-  splitBlueprintState[side].rotation += deg;
-  updateSplitBlueprint(side);
-}
+    function rotateSplitBlueprint(side, deg) {
+      splitBlueprintState[side].rotation += deg;
+      updateSplitBlueprint(side);
+    }
 
-function resetSplitBlueprint(side){
-  splitBlueprintState[side] = { scale:1, rotation:0, offsetX:0, offsetY:0 };
-  updateSplitBlueprint(side);
-}
-["left","right"].forEach(side=>{
+    function resetSplitBlueprint(side) {
+      splitBlueprintState[side] = { scale: 1, rotation: 0, offsetX: 0, offsetY: 0 };
+      updateSplitBlueprint(side);
+    }
+    ["left", "right"].forEach(side => {
 
-  const container = document.getElementById(side+"BlueprintContainer");
-  let isDragging = false;
-  let startX,startY;
+      const container = document.getElementById(side + "BlueprintContainer");
+      let isDragging = false;
+      let startX, startY;
 
-  container.addEventListener("pointerdown",e=>{
-    isDragging = true;
-    const state = splitBlueprintState[side];
-    startX = e.clientX - state.offsetX;
-    startY = e.clientY - state.offsetY;
-  });
+      container.addEventListener("pointerdown", e => {
+        isDragging = true;
+        const state = splitBlueprintState[side];
+        startX = e.clientX - state.offsetX;
+        startY = e.clientY - state.offsetY;
+      });
 
-  window.addEventListener("pointermove",e=>{
-    if(!isDragging) return;
-    const state = splitBlueprintState[side];
-    state.offsetX = e.clientX - startX;
-    state.offsetY = e.clientY - startY;
-    updateSplitBlueprint(side);
-  });
+      window.addEventListener("pointermove", e => {
+        if (!isDragging) return;
+        const state = splitBlueprintState[side];
+        state.offsetX = e.clientX - startX;
+        state.offsetY = e.clientY - startY;
+        updateSplitBlueprint(side);
+      });
 
-  window.addEventListener("pointerup",()=>{
-    isDragging = false;
-  });
+      window.addEventListener("pointerup", () => {
+        isDragging = false;
+      });
 
-});
-function toggleSplitMinimize(side){
-  const el = document.getElementById(side+"Blueprint");
-  el.classList.toggle("minimized");
-}
+    });
+    function toggleSplitMinimize(side) {
+      const el = document.getElementById(side + "Blueprint");
+      el.classList.toggle("minimized");
+    }
 
-function toggleSplitFullscreen(side){
-  const el = document.getElementById(side+"Blueprint");
-  el.classList.toggle("fullscreen");
-}
+    function toggleSplitFullscreen(side) {
+      const el = document.getElementById(side + "Blueprint");
+      el.classList.toggle("fullscreen");
+    }
 
-function togglePanoFullscreen() {
+    function togglePanoFullscreen() {
 
-  const viewerEl = document.getElementById("viewer360");
-  const blueprint = document.getElementById("blueprintPopup");
-  const icon = document.getElementById("fullscreenIcon");
-  const label = document.getElementById("fullscreenLabel");
+      const viewerEl = document.getElementById("viewer360");
+      const blueprint = document.getElementById("blueprintPopup");
+      const icon = document.getElementById("fullscreenIcon");
+      const label = document.getElementById("fullscreenLabel");
 
-  if (!viewerEl.classList.contains("fullscreen-mode")) {
+      if (!viewerEl.classList.contains("fullscreen-mode")) {
 
-    viewerEl.classList.add("fullscreen-mode");
+        viewerEl.classList.add("fullscreen-mode");
 
-    // Make blueprint overlay above pano
-    blueprint.classList.add("fullscreen-overlay");
+        // Make blueprint overlay above pano
+        blueprint.classList.add("fullscreen-overlay");
 
-    icon.innerText = "fullscreen_exit";
-    label.innerText = "Exit Fullscreen";
+        icon.innerText = "fullscreen_exit";
+        label.innerText = "Exit Fullscreen";
 
-  } else {
+      } else {
 
-    viewerEl.classList.remove("fullscreen-mode");
-    blueprint.classList.remove("fullscreen-overlay");
+        viewerEl.classList.remove("fullscreen-mode");
+        blueprint.classList.remove("fullscreen-overlay");
 
-    icon.innerText = "fullscreen";
-    label.innerText = "Fullscreen";
-  }
+        icon.innerText = "fullscreen";
+        label.innerText = "Fullscreen";
+      }
 
-  // Important: resize pannellum viewer after layout change
-  if (viewer) {
-    setTimeout(() => viewer.resize(), 300);
-  }
-}
+      // Important: resize pannellum viewer after layout change
+      if (viewer) {
+        setTimeout(() => viewer.resize(), 300);
+      }
+    }
   </script>
 
 </body>
